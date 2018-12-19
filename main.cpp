@@ -7,7 +7,7 @@ int main() {
     std::string line = "yay+divide/ love () wow + + ++";
     std::cout << "before: " << line << std::endl;
     //ExpressionTest::doTest();
-    std::unordered_set<char> operators = {'+', '-', '/', '*', '(', ')', '='};
+    std::unordered_set<char> operators = {'+', '-', '/', '*', '(', ')', '=',':'};
     int i = 0;
     bool inserted = false;
     while (i < line.length()) {
@@ -22,6 +22,7 @@ int main() {
         }
         if (inserted) {
             i++;
+            inserted = false;
         }
         i++;
     }

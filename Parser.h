@@ -5,10 +5,14 @@
 #ifndef MILESTONE_PARSER_H
 #define MILESTONE_PARSER_H
 
+#include <string>
+#include <vector>
+#include "Parser.h"
+using namespace std;
 
 class Parser {
 public:
-    void parse();
+    void parse(vector<string>* commands);
 };
 
 

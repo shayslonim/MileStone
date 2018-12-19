@@ -25,7 +25,7 @@ std::vector<std::string>* Lexer::lexer(string line) {
     }
     return commands;
 }
-
+//This is a comment
 string Lexer::separateSpaces(string line) {
     unordered_set<char> operators = {'+', '-', '/', '*', '(', ')', '='};
     int i = 0;

@@ -5,10 +5,12 @@
 #ifndef MILESTONE_COMMAND_H
 #define MILESTONE_COMMAND_H
 
+#include <string>
+#include <vector>
 
+using namespace std;
 class Command {
-    virtual void execute() = 0;
+    virtual void execute(vector<string>::iterator) = 0;
 };
-
 
 #endif //MILESTONE_COMMAND_H

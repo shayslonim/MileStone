@@ -4,6 +4,6 @@
 
 #include "Parser.h"
 
-void Parser::parse() {
+void Parser::parse(vector <string>* commands) {
 
 }

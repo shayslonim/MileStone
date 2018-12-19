@@ -3,6 +3,7 @@
 #include <unordered_set>
 
 int main() {
+    //var x = -3
     std::string line = "yay+divide/ love () wow + + ++";
     std::cout << "before: " << line << std::endl;
     //ExpressionTest::doTest();
@@ -18,13 +19,11 @@ int main() {
                 line.insert(i, " ");
                 inserted = true;
             }
-
-            if (inserted) {
-                i++;
-            }
-            i++;
-
         }
+        if (inserted) {
+            i++;
+        }
+        i++;
     }
     std::cout << "after: " << line << std::endl;
 

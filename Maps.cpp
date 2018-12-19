@@ -10,4 +10,5 @@ class Maps
 {
     map<string, string> bindMap;
     map<string, double> valMap;
+
 };

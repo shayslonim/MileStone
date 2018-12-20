@@ -4,5 +4,12 @@
 
 #ifndef MILESTONE_CONNECT_H
 #define MILESTONE_CONNECT_H
+#include "Command.h"
+
+class Connect : public Command
+{
+public:
+    void execute(vector<string>::iterator);
+};
 
 #endif //MILESTONE_CONNECT_H

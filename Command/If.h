@@ -4,11 +4,12 @@
 
 #ifndef MILESTONE_IF_H
 #define MILESTONE_IF_H
+#include "Command.h"
 
-
-class If {
-
+class If : public Command
+{
+public:
+    void execute(vector<string>::iterator);
 };
-
 
 #endif //MILESTONE_IF_H

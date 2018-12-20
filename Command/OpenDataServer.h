@@ -4,5 +4,12 @@
 
 #ifndef MILESTONE_OPENDATASERVER_H
 #define MILESTONE_OPENDATASERVER_H
+#include "Command.h"
+
+class OpenDataServer : public Command
+{
+public:
+    void execute(vector<string>::iterator);
+};
 
 #endif //MILESTONE_OPENDATASERVER_H

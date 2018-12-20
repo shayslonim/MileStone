@@ -23,12 +23,20 @@ string Lexer::separateSpaces(string line) {
     int i = 0;
     bool inserted = false;
     bool isNum = false;
+    bool isQuotation = false;
     while (i < line.length()) {
+        if (line[i] == '"') {
+            if (!isQuotation) {
+                isQuotation = true;
+            } else {
+                isQuotation = false;
+            }
+        }
+        if (!isQuotation) {
         if (line[i] >= '0' && line[i] <= '9') {
             isNum = true;
         } else {
-            if (line[i] != ' ' && line[i] != '-')
-            {
+            if (line[i] != ' ' && line[i] != '-') {
                 isNum = false;
             }
         }
@@ -47,6 +55,7 @@ string Lexer::separateSpaces(string line) {
             i++;
             inserted = false;
         }
+    }
         i++;
     }
     return line;

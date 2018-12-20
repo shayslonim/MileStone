@@ -5,7 +5,7 @@
 
 int main() {
     //var x = -3
-    string line = "yay+divide/ love () wow + + 3+";
+    string line = string() + "yay" + '"' + "+divide/ love" + '"' + "() wow + + 3+";
     //string line = "3+";
     cout << "before: " << line << std::endl;
     //ExpressionTest::doTest();

@@ -6,6 +6,7 @@
 #define PROJECT_VARBINDMAP_H
 #include <string>
 #include <map>
+#include "Command/Command.h"
 using namespace std;
 
 class Maps
@@ -18,6 +19,5 @@ public:
     static string getBind(string key);
     static double getVal(string key);
 };
-
 
 #endif //PROJECT_VARBINDMAP_H

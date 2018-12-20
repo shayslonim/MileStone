@@ -6,6 +6,9 @@
 using namespace std;
 
 double Maps::getVal(string key) {
+    if (valMap[key] == NULL) {
+        return DEFAULT;
+    }
     return valMap[key];
 }
 

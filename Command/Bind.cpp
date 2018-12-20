@@ -3,7 +3,6 @@
 //
 
 #include "Bind.h"
-#include "../Maps.h"
 
 // The vector is expected to include strings without spaces, ex: var breaks = bind "/controls/flight/speedbrake"
 void Bind::execute(vector<string>::iterator iter) {

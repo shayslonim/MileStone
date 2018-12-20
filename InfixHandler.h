@@ -10,14 +10,18 @@ using namespace std;
 
 class InfixHandler {
 public:
-    string convertToPostfix(string infix);
+    vector<string> convertToPostfix(vector<string> infix);
 
 private:
     static bool isNumber(string s);
 
     static bool isDigit(char c);
 
-    bool isOperator(string &basic_string);
+    static bool isOperator(string s);
+
+    static bool isHigherPriority(char operator1, char operator2);
+
+
 };
 
 

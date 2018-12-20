@@ -10,25 +10,12 @@
 
 using namespace std;
 
+
 /**
  * The function takes an infix numeric expression and converts it to a postfix one.
  * @param infix the infix expression that would be converted
  * @return the postfix version of the same expression
  */
-//string InfixHandler::convertToPostfix(string infix) {
-//    int i = 0;
-//    while (i < infix.length()) {
-//        char c = infix[i];
-//        if (isdigit(c)) {
-//            int numValue = 0;
-//            while (isdigit(c)) {
-//
-//            }
-//        }
-//        i++;
-//    }
-//}
-
 vector<string> InfixHandler::convertToPostfix(vector<string> infix) {
     vector<string> resultArray;
     queue<string> operatorsQueue;
@@ -67,29 +54,20 @@ vector<string> InfixHandler::convertToPostfix(vector<string> infix) {
             operatorsStack.pop();
         }
     }
-    /* While there are operators on the stack, pop them to the queue
-      (unless they are brackets then ignore them) */
-    while (!operatorsStack.empty()) {
-        char top = operatorsStack.top();
-        if (top != ')' && top != '(') {
-            operatorsQueue.push(to_string(top));
-        }
-    }
-
-    //convert the result to a vector of strings
-    while (!operatorsQueue.empty()) {
-        resultArray.push_back(operatorsQueue.top());
-        operatorsQueue.pop();
-    }
-    return resultArray;
 }
 
-bool isDigit(char c) {
-    return ('0' <= c && c <= '9');
+bool InfixHandler::isOperator(string s) {
+    if (s.length() > 1) {
+        return false;
+    }
+    //convert the string to char
+    char symbol = s[0];
+
+    unordered_set<char> operators = {'+', '-', '/', '*', '(', ')', '=', ':'};
+    return operators.find(symbol) != operators.end();
 }
 
-
-bool isNumber(string s) {
+bool InfixHandler::isNumber(string s) {
     bool usedPeriod = false; //a boolean that checks if we used a decimal period.
 
     //if the first char is not minus sign or a digit return false.
@@ -99,17 +77,20 @@ bool isNumber(string s) {
     //check that the rest of the string is digits
     for (int i = 0; i < s.length(); i++) {
         if (!isdigit(s[i])) {
-            return false;
+            //if it's not a digit, maybe it's a period which is allowed once. else, return false.
+            if (s[i] == '.' && !usedPeriod) {
+                usedPeriod = true;
+            } else {
+                return false;
+            }
         }
     }
 }
 
-bool InfixHandler::isOperator(string &c) {
-    unordered_set<char> operators = {'+', '-', '/', '*', '(', ')', '=', ':'};
-    return operators.find(c) != operators.end();
+bool InfixHandler::isDigit(char c) {
+    return ('0' <= c && c <= '9');
 }
 
-bool isHigherPriority(char operator1, char operator2) {
-    //+ - * /
-    return operator1 == '*' || operator1 == '/' && operator2 == '+' || operator2 == '-';
+bool InfixHandler::isHigherPriority(char operator1, char operator2) {
+    return (operator1 == '*' || operator1 == '/') && (operator2 == '+' || operator2 == '-');
 }

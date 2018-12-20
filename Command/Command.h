@@ -10,6 +10,7 @@
 
 using namespace std;
 class Command {
+public:
     virtual void execute(vector<string>::iterator iter) = 0;
 };
 

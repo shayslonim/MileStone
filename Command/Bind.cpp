@@ -5,7 +5,11 @@
 #include "Bind.h"
 #include "../Maps.h"
 
-// The vector is expected to include two strings only.
+// The vector is expected to include strings without spaces, ex: var breaks = bind "/controls/flight/speedbrake"
 void Bind::execute(vector<string>::iterator iter) {
-    Maps::insertBind(iter[0], iter[1]);
+    //vector<string> buffer = cut(iter);
+    Maps::insertBind(iter[FIRST], iter[SECOND]);
 }
+//vector<string> Bind::cut(vector<string>::iterator iter) {
+//
+//}

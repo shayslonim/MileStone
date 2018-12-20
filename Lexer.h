@@ -3,6 +3,11 @@
 //
 #include <string>
 #include <vector>
+#include <list>
+#include <set>
+#include <unordered_set>
+#include <iostream>
+using namespace std;
 
 #ifndef MILESTONE_LEXER_H
 #define MILESTONE_LEXER_H
@@ -12,10 +17,8 @@ class Lexer {
 public:
     vector<string>* lexer(string line);
 
-private:
+public: //private
     static string separateSpaces(string line);
-
-
 };
 
 

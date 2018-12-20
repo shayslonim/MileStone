@@ -3,12 +3,20 @@
 //
 
 #include "Maps.h"
-#include <map>
 using namespace std;
 
-class Maps
-{
-    map<string, string> bindMap;
-    map<string, double> valMap;
+double Maps::getVal(string key) {
+    return valMap[key];
+}
 
-};
+string Maps::getBind(string key) {
+    return bindMap[key];
+}
+
+void Maps::insertVal(string key, double val) {
+    valMap[key] = val;
+}
+
+void Maps::insertBind(string key, string val) {
+    bindMap[key] = val;
+}

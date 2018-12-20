@@ -10,7 +10,7 @@
 
 using namespace std;
 class Command {
-    virtual void execute(vector<string>::iterator) = 0;
+    virtual void execute(vector<string>::iterator iter) = 0;
 };
 
 #endif //MILESTONE_COMMAND_H

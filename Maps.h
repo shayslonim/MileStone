@@ -4,5 +4,20 @@
 
 #ifndef PROJECT_VARBINDMAP_H
 #define PROJECT_VARBINDMAP_H
+#include <string>
+#include <map>
+using namespace std;
+
+class Maps
+{
+    static map<string, string> bindMap;
+    static map<string, double> valMap;
+public:
+    static void insertBind(string key, string val);
+    static void insertVal(string key, double val);
+    static string getBind(string key);
+    static double getVal(string key);
+};
+
 
 #endif //PROJECT_VARBINDMAP_H

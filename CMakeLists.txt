@@ -3,4 +3,4 @@ project(MileStone)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(MileStone main.cpp Lexer.cpp Lexer.h Command.h Parser.cpp Parser.h Expression/Expression.h Expression/NumExpression.cpp Expression/NumExpression.h Expression/Multiply.cpp Expression/Multiply.h Expression/Divide.cpp Expression/Divide.h Expression/BinaryExpression.cpp Expression/BinaryExpression.h Expression/Plus.cpp Expression/Plus.h Expression/Minus.cpp Expression/Minus.h Expression/ExpressionTest.cpp Expression/ExpressionTest.h)
+add_executable(MileStone main.cpp Lexer.cpp Lexer.h Command/Command.h Parser.cpp Parser.h Expression/Expression.h Expression/NumExpression.cpp Expression/NumExpression.h Expression/Multiply.cpp Expression/Multiply.h Expression/Divide.cpp Expression/Divide.h Expression/BinaryExpression.cpp Expression/BinaryExpression.h Expression/Plus.cpp Expression/Plus.h Expression/Minus.cpp Expression/Minus.h Expression/ExpressionTest.cpp Expression/ExpressionTest.h Command/Bind.cpp Command/Bind.h Maps.cpp Maps.h)

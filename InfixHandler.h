@@ -6,11 +6,12 @@
 #define MILESTONE_INFIXHANDLER_H
 
 #include <string>
+
 using namespace std;
 
 class InfixHandler {
 public:
-    vector<string> convertToPostfix(vector<string> infix);
+    vector<string> convertToPrefix(vector<string> infix);
 
 private:
     static bool isNumber(string s);
@@ -20,6 +21,8 @@ private:
     static bool isOperator(string s);
 
     static bool isHigherPriority(char operator1, char operator2);
+
+    static string charToString(char c);
 
 
 };

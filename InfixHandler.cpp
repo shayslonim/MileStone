@@ -7,7 +7,7 @@
 #include <queue>
 #include <stack>
 #include <unordered_set>
-
+#define LENGTH_OF_CHAR 1
 using namespace std;
 
 
@@ -16,25 +16,31 @@ using namespace std;
  * @param infix the infix expression that would be converted
  * @return the postfix version of the same expression
  */
-vector<string> InfixHandler::convertToPostfix(vector<string> infix) {
+vector<string> InfixHandler::convertToPrefix(vector<string> infix) {
+
+    /*
+     * In this implementation of the shunting-yard algorithm, we use output-stack instead of an output queue,
+     * since we want the result in prefix and not postfix like the usual shunting yard.
+     */
     vector<string> resultArray;
-    queue<string> operatorsQueue;
+    stack<string> outputStack;
     stack<char> operatorsStack;
 
     for (string &s :infix) {
         if (isNumber(s)) {
-            operatorsQueue.push(s);
+            outputStack.push(s);
         } else if (isOperator(s)) {
 
-            //Since the string s is an operator, it is excpected to have length 1, so it can be converted into a char.
+            //Since the string s is an operator, it is expected to have length 1, so it can be converted into a char.
             char curOperator = s[0];
 
             /* While there is an operator with greater precedence in the stack, pop it to the queue */
-
-            char top = operatorsStack.top();
-            while (!operatorsStack.empty() && isHigherPriority(top, curOperator)) {
-                operatorsStack.pop(); //pop the operator from the stack
-                operatorsQueue.push(to_string(top)); //add the operator to the queue
+            if (!operatorsStack.empty()) {
+                char top = operatorsStack.top();
+                while (!operatorsStack.empty() && isHigherPriority(top, curOperator)) {
+                    operatorsStack.pop(); //pop the operator from the stack
+                    outputStack.push(charToString(top)); //add the operator to the queue
+                }
             }
             //push the current operator onto the stack
             operatorsStack.push(curOperator);
@@ -46,14 +52,32 @@ vector<string> InfixHandler::convertToPostfix(vector<string> infix) {
             /* While there's not a left bracket at the top of the stack
               Pop operators from the stack onto the output queue.*/
             while (!operatorsStack.empty() && (operatorsStack.top() != '(')) {
-                string top = to_string(operatorsStack.top());
-                operatorsQueue.push(top);
+                string top = charToString(operatorsStack.top());
+                outputStack.push(top);
 
             }
             //pop the left bracket from the stack and discard it
             operatorsStack.pop();
+        } else {
+            throw exception();
         }
     }
+
+    //while there are operators on the stack, pop them to the queue
+    while (!operatorsStack.empty()) {
+        char top = operatorsStack.top();
+        if (top != '(' && top != ')') {
+            outputStack.push(charToString(top));
+            operatorsStack.pop();
+        }
+    }
+
+    //move the queue to the array
+    while (!outputStack.empty()) {
+        resultArray.push_back(outputStack.top());
+        outputStack.pop();
+    }
+return resultArray;
 }
 
 bool InfixHandler::isOperator(string s) {
@@ -85,6 +109,7 @@ bool InfixHandler::isNumber(string s) {
             }
         }
     }
+    return true;
 }
 
 bool InfixHandler::isDigit(char c) {
@@ -94,3 +119,10 @@ bool InfixHandler::isDigit(char c) {
 bool InfixHandler::isHigherPriority(char operator1, char operator2) {
     return (operator1 == '*' || operator1 == '/') && (operator2 == '+' || operator2 == '-');
 }
+
+string InfixHandler::charToString(char c) {
+    int lengthOfChar = 1;
+    return string(lengthOfChar, c);
+}
+
+

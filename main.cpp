@@ -5,6 +5,7 @@
 #include "InfixHandler.h"
 
 static void printVector(vector<string> array);
+
 int main() {
 //    //var x = -3
 //    string line = string() + "yay" + '"' + "+divide/ love" + '"' + "() wow + + 3+";
@@ -15,7 +16,7 @@ int main() {
 
 
     InfixHandler converter;
-    vector<string> result = converter.convertToPrefix({"5", "+", "5"});
+    vector<string> result = converter.convertToPostfix({"1", "+", "5", "/", "3"});
     printVector(result);
     return 0;
 
@@ -23,7 +24,7 @@ int main() {
 
 static void printVector(vector<string> array) {
     for (string &s:array) {
-        std::cout << s +" ";
+        std::cout << s + " ";
     }
     cout << endl;
 }

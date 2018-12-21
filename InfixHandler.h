@@ -11,7 +11,7 @@ using namespace std;
 
 class InfixHandler {
 public:
-    vector<string> convertToPrefix(vector<string> infix);
+    vector<string> convertToPostfix(vector<string> infix);
 
 private:
     static bool isNumber(string s);
@@ -23,8 +23,6 @@ private:
     static bool isHigherPriority(char operator1, char operator2);
 
     static string charToString(char c);
-
-
 };
 
 

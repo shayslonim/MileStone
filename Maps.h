@@ -7,7 +7,6 @@
 #include <string>
 #include <map>
 #include "Command/Command.h"
-#define DEFAULT 1
 using namespace std;
 
 class Maps

@@ -28,8 +28,15 @@ string Lexer::separateSpaces(string line) {
         if (line[i] == '"') {
             if (!isQuotation) {
                 isQuotation = true;
+                if (i > 0) {
+                    line.insert(i, " ");
+                    i++;
+                }
             } else {
                 isQuotation = false;
+                if (i < line.length() - 1) {
+                    line.insert(i + 1, " ");
+                }
             }
         }
         if (!isQuotation) {

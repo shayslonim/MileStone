@@ -20,7 +20,7 @@ class ExpressionFactory {
      * @param postfix the vector<string> of operators and numbers, in postfix notation
      * @return an Expression*
      */
-Expression getExpression(vector<string> postfix);
+    Expression* getExpression(vector<string> postfix);
 };
 
 

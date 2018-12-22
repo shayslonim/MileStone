@@ -52,6 +52,7 @@ vector<string> InfixHandler::convertToPostfix(vector<string> infix) {
             while (!operatorsStack.empty() && (operatorsStack.top() != '(')) {
                 string top = charToString(operatorsStack.top());
                 outputQueue.push(top);
+                operatorsStack.pop();
 
             }
             //pop the left bracket from the stack and discard it
@@ -86,7 +87,7 @@ bool InfixHandler::isOperator(string s) {
     //convert the string to char
     char symbol = s[0];
 
-    unordered_set<char> operators = {'+', '-', '/', '*', '(', ')', '=', ':'};
+    unordered_set<char> operators = {'+', '-', '/', '*', '=', ':'};
     return operators.find(symbol) != operators.end();
 }
 

@@ -19,5 +19,5 @@ void Equals::execute(vector<string>::iterator iter) {
         second++;
     }
     Expression* exp; // Use ShuntingYard algorithm of Expression on iter[second] until line end @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    Maps::insertVal(iter[first], exp->calculate());
+    this->maps->insertVal(iter[first], exp->calculate());
 }

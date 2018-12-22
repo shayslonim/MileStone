@@ -12,7 +12,11 @@
 
 class Equals : public Command
 {
+    Maps* maps;
 public:
+    Equals(Maps* maps) {
+        this->maps = maps;
+    }
     void execute(vector<string>::iterator);
 };
 

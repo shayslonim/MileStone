@@ -11,7 +11,11 @@
 
 class Bind : public Command
 {
+    Maps* maps;
 public:
+    Bind(Maps* maps) {
+        this->maps = maps;
+    }
     void execute(vector<string>::iterator);
     //vector<string> cut(vector<string>::iterator iter);
 };

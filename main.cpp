@@ -18,6 +18,8 @@ int main() {
     InfixHandler converter;
     vector<string> result = converter.convertToPostfix({"1", "+", "5", "/", "3"});
     printVector(result);
+    result = converter.convertToPostfix({"(", "1", "+", "5",")", "/", "3"});
+    printVector(result);
     return 0;
 
 }

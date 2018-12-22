@@ -11,16 +11,16 @@
 #include "Expression/Divide.h"
 
 Expression* ExpressionFactory::getExpression(vector<string> postfix) {
-    stack<Expression*> ExpressionStack;
+    stack<Expression*> expressionStack;
     for (string &s: postfix) {
         //If the current string is an operator
         if (s == "+" || s == "-" || s == "*" || s == "/") {
             char oper = s[0];
             //take two numbers out of the stack
-            Expression* num2 = ExpressionStack.top();
-            ExpressionStack.pop();
-            Expression* num1 = ExpressionStack.top();
-            ExpressionStack.pop();
+            Expression* num2 = expressionStack.top();
+            expressionStack.pop();
+            Expression* num1 = expressionStack.top();
+            expressionStack.pop();
 
             //create the expression with the two numbers
             Expression* exp;
@@ -41,11 +41,15 @@ Expression* ExpressionFactory::getExpression(vector<string> postfix) {
                     throw "Operator is unknown";
             }
             //Push the created expression to the stack;
-            ExpressionStack.push(exp);
+            expressionStack.push(exp);
         } else { //The current string is a number
             //convert the string to double and push it the stack
-            ExpressionStack.push(new NumExpression(stod(s)));
+            expressionStack.push(new NumExpression(stod(s)));
         }
     }
-    return ExpressionStack.top();
+    //There should be one item in the stack which is the return value.
+    if (expressionStack.size() != 1) {
+        throw "Something went wrong with the algorithm. Is it possible that the expression isn't correct?";
+    }
+    return expressionStack.top();
 }

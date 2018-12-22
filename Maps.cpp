@@ -5,8 +5,18 @@
 #include "Maps.h"
 using namespace std;
 
-double Maps::getVal(string key) {
-    return valMap[key];
+#include <string>
+#include <map>
+#include "Command/Command.h"
+using namespace std;
+
+void Maps::insertBind(string key, string val) {
+    bindMap[key] = val;
+    reversedBindMap[val] = key;
+}
+
+void Maps::insertVal(string key, double val) {
+    valMap[key] = val;
 }
 
 string Maps::getBind(string key) {
@@ -17,12 +27,6 @@ string Maps::getReversedBind(string val) {
     return reversedBindMap[val];
 }
 
-void Maps::insertVal(string key, double val) {
-    valMap[key] = val;
-}
-
-// Double-binding
-void Maps::insertBind(string key, string val) {
-    bindMap[key] = val;
-    reversedBindMap[val] = key;
+double Maps::getVal(string key) {
+    return valMap[key];
 }

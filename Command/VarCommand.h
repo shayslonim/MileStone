@@ -10,7 +10,11 @@
 
 class Var : public Command
 {
+    Maps* maps;
 public:
+    Var(Maps* maps) {
+        this->maps = maps;
+    }
     void execute(vector<string>::iterator);
 
 };

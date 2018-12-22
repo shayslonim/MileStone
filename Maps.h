@@ -11,15 +11,20 @@ using namespace std;
 
 class Maps
 {
-    static map<string, string> bindMap;
-    static map<string, string> reversedBindMap;
-    static map<string, double> valMap;
+    map<string, string> bindMap;
+    map<string, string> reversedBindMap;
+    map<string, double> valMap;
 public:
-    static void insertBind(string key, string val);
-    static void insertVal(string key, double val);
-    static string getBind(string key);
-    static string getReversedBind(string val);
-    static double getVal(string key);
+    // Double-binding
+    void insertBind(string key, string val);
+
+    void insertVal(string key, double val);
+
+    string getBind(string key);
+
+    string getReversedBind(string val);
+
+    double getVal(string key);
 };
 
 #endif //PROJECT_VARBINDMAP_H

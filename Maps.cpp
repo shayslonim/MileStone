@@ -30,3 +30,9 @@ string Maps::getReversedBind(string val) {
 double Maps::getVal(string key) {
     return valMap[key];
 }
+
+Maps::Maps() {
+    this->bindMap = map<string, string>();
+    this->reversedBindMap = map<string, string>();
+    this->valMap = map<string, double>();
+}

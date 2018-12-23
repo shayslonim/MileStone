@@ -7,3 +7,8 @@
 void Parser::parse(vector <string>* commands) {
 
 }
+
+Parser::Parser() {
+    this->maps = Maps();
+    this->commands = vector<Command>();
+}

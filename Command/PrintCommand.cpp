@@ -3,5 +3,3 @@
 //
 
 #include "PrintCommand.h"
-
-PrintCommand::PrintCommand() {}

@@ -3,5 +3,3 @@
 //
 
 #include "ConnectCommand.h"
-
-ConnectCommand::ConnectCommand() {}

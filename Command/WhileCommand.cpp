@@ -3,5 +3,3 @@
 //
 
 #include "WhileCommand.h"
-
-WhileCommand::WhileCommand() {}

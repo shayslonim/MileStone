@@ -8,10 +8,14 @@
 #include <string>
 #include <vector>
 #include "Parser.h"
+#include "Maps.h"
 using namespace std;
 
 class Parser {
+    Maps maps;
+    vector<Command> commands;
 public:
+    Parser();
     void parse(vector<string>* commands);
 };
 

@@ -5,6 +5,7 @@
 #ifndef MILESTONE_INFIXHANDLER_H
 #define MILESTONE_INFIXHANDLER_H
 
+#include <vector>
 #include <string>
 
 using namespace std;

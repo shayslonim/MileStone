@@ -15,6 +15,7 @@ class Maps
     map<string, string> reversedBindMap;
     map<string, double> valMap;
 public:
+    Maps();
     // Double-binding
     void insertBind(string key, string val);
 

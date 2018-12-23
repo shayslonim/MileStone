@@ -11,7 +11,7 @@
 using namespace std;
 class Command {
 public:
-    virtual void execute(vector<string>::iterator iter) = 0;
+    virtual void execute(/*vector<string>::iterator iter*/) {};
 };
 
 #endif //MILESTONE_COMMAND_H

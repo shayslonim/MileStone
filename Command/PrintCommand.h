@@ -10,7 +10,7 @@ class PrintCommand : public Command
 {
 public:
     PrintCommand();
-    void execute(vector<string>::iterator);
+    void execute(/*vector<string>::iterator*/);
 };
 
 #endif //MILESTONE_PRINT_H

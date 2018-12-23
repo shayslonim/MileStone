@@ -8,7 +8,8 @@
 //breaks = 0
 //var h0 = heading
 //aileron = - roll / 70
-void EqualsCommand::execute(vector<string>::iterator iter) {
+void EqualsCommand::execute(/*vector<string>::iterator iter*/) {
+    vector<string>::iterator iter = this->line.begin();
     int first = FIRST;
     int second = SECOND;
     if (iter[0] == "var") {
@@ -22,6 +23,7 @@ void EqualsCommand::execute(vector<string>::iterator iter) {
     this->maps->insertVal(iter[first], exp->calculate());
 }
 
-EqualsCommand::EqualsCommand(Maps* maps) {
+EqualsCommand::EqualsCommand(vector<string> line, Maps* maps) {
+    this->line = line;
     this->maps = maps;
 }

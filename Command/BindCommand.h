@@ -11,11 +11,11 @@
 
 class BindCommand : public Command
 {
+    vector<string> line;
     Maps* maps;
 public:
-    BindCommand(Maps* maps);
-    void execute(vector<string>::iterator);
-    //vector<string> cut(vector<string>::iterator iter);
+    BindCommand(vector<string> line, Maps* maps);
+    void execute(/*vector<string>::iterator*/) override;
 };
 
 #endif //MILESTONE_BIND_H

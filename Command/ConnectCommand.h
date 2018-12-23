@@ -10,7 +10,7 @@ class ConnectCommand : public Command
 {
 public:
     ConnectCommand();
-    void execute(vector<string>::iterator);
+    void execute(/*vector<string>::iterator*/);
 };
 
 #endif //MILESTONE_CONNECT_H

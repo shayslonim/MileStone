@@ -10,7 +10,7 @@ class WhileCommand : public Command
 {
 public:
     WhileCommand();
-    void execute(vector<string>::iterator);
+    void execute(/*vector<string>::iterator*/);
 };
 
 #endif //MILESTONE_WHILE_H

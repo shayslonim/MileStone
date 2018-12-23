@@ -12,10 +12,11 @@
 
 class EqualsCommand : public Command
 {
+    vector<string> line;
     Maps* maps;
 public:
-    EqualsCommand(Maps* maps);
-    void execute(vector<string>::iterator);
+    EqualsCommand(vector<string> line, Maps* maps);
+    void execute(/*vector<string>::iterator*/);
 };
 
 #endif //MILESTONE_EQUALS_H

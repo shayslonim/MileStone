@@ -10,10 +10,11 @@
 
 class VarCommand : public Command
 {
+    vector<string> line;
     Maps* maps;
 public:
-    VarCommand(Maps* maps);
-    void execute(vector<string>::iterator);
+    VarCommand(vector<string> line, Maps* maps);
+    void execute(/*vector<string>::iterator*/);
 };
 
 #endif //MILESTONE_VAR_H

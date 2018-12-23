@@ -10,7 +10,7 @@ class OpenDataServerCommand : public Command
 {
 public:
     OpenDataServerCommand();
-    void execute(vector<string>::iterator);
+    void execute(/*vector<string>::iterator*/);
 };
 
 #endif //MILESTONE_OPENDATASERVER_H

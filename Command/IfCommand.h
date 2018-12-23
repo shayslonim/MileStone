@@ -10,7 +10,7 @@ class IfCommand : public Command
 {
 public:
     IfCommand();
-    void execute(vector<string>::iterator);
+    void execute(/*vector<string>::iterator*/);
 };
 
 #endif //MILESTONE_IF_H

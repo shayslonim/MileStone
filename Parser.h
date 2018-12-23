@@ -16,7 +16,7 @@ class Parser {
     vector<Command> commands;
 public:
     Parser();
-    void parse(vector<string>* commands);
+    void parse(vector<string>* line);
 };
 
 

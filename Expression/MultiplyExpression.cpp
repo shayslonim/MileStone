@@ -2,7 +2,7 @@
 // Created by shay on 12/17/18.
 //
 
-#include "Multiply.h"
+#include "MultiplyExpression.h"
 
 double Multiply::calculate() {
     return this->getLeft()->calculate() * this->getRight()->calculate();

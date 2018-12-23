@@ -7,10 +7,10 @@
 
 #include "Expression.h"
 #include "BinaryExpression.h"
-#include "Plus.h"
-#include "Minus.h"
-#include "Divide.h"
-#include "Multiply.h"
+#include "PlusExpression.h"
+#include "MinusExpression.h"
+#include "DivideExpression.h"
+#include "MultiplyExpression.h"
 #include "NumExpression.h"
 
 class ExpressionTest {

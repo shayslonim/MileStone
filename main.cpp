@@ -2,6 +2,7 @@
 #include "Expression/ExpressionTest.h"
 #include "Lexer.h"
 #include <unordered_set>
+#include <thread>
 #include "InfixHandler.h"
 
 static void printVector(vector<string> array);
@@ -17,6 +18,8 @@ int main() {
 
     InfixHandler converter;
     vector<string> result = converter.convertToPostfix({"1", "+", "5", "/", "3"});
+    printVector(result);
+    result = converter.convertToPostfix({"(", "1", "+", "5", ")", "/", "3"});
     printVector(result);
     return 0;
 

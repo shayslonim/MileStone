@@ -2,7 +2,7 @@
 // Created by shay on 12/18/18.
 //
 
-#include "Minus.h"
+#include "MinusExpression.h"
 double Minus::calculate() {
     return this->getLeft()->calculate() - this->getRight()->calculate();
 }

@@ -2,7 +2,7 @@
 // Created by shira on 12/20/18.
 //
 
-#include "Equals.h"
+#include "EqualsCommand.h"
 
 //var breaks = bind "/controls/flight/speedbrake"
 //breaks = 0

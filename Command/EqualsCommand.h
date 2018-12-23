@@ -7,8 +7,8 @@
 #include "Command.h"
 #include "../Maps.h"
 #include "../Expression/Expression.h"
-#define FIRST 0
-#define SECOND 2
+#define FIRST_EQUALS 0
+#define SECOND_EQUALS 2
 
 class EqualsCommand : public Command
 {

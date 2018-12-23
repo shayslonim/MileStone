@@ -10,8 +10,8 @@
 //aileron = - roll / 70
 void EqualsCommand::execute(/*vector<string>::iterator iter*/) {
     vector<string>::iterator iter = this->line.begin();
-    int first = FIRST;
-    int second = SECOND;
+    int first = FIRST_EQUALS;
+    int second = SECOND_EQUALS;
     if (iter[0] == "var") {
         first++;
         second++;

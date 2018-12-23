@@ -2,13 +2,13 @@
 // Created by shira on 12/20/18.
 //
 
-#include "Equals.h"
+#include "EqualsCommand.h"
 
 //var breaks = bind "/controls/flight/speedbrake"
 //breaks = 0
 //var h0 = heading
 //aileron = - roll / 70
-void Equals::execute(vector<string>::iterator iter) {
+void EqualsCommand::execute(vector<string>::iterator iter) {
     int first = FIRST;
     int second = SECOND;
     if (iter[0] == "var") {

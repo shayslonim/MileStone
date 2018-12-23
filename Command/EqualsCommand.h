@@ -10,11 +10,11 @@
 #define FIRST 0
 #define SECOND 2
 
-class Equals : public Command
+class EqualsCommand : public Command
 {
     Maps* maps;
 public:
-    Equals(Maps* maps) {
+    EqualsCommand(Maps* maps) {
         this->maps = maps;
     }
     void execute(vector<string>::iterator);

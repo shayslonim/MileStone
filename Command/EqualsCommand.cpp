@@ -20,6 +20,7 @@ void EqualsCommand::execute(/*vector<string>::iterator iter*/) {
         second++;
     }
     Expression* exp; // Use ShuntingYard algorithm of Expression on iter[second] until line end @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    // Calculate vars to double -> insert to InfixHndler -> insert to factory
     this->maps->insertVal(iter[first], exp->calculate());
 }
 

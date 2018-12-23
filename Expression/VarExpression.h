@@ -12,8 +12,9 @@ using namespace std;
 class VarExpression : public Expression {
 private:
     string value;
+    Maps* maps;
 public:
-    VarExpression(string value);
+    VarExpression(string value, Maps* maps);
     double calculate() override;
 };
 

@@ -2,7 +2,7 @@
 // Created by shay on 12/18/18.
 //
 
-#include "Plus.h"
+#include "PlusExpression.h"
 
 double Plus::calculate() {
     return this->getLeft()->calculate() + this->getRight()->calculate();

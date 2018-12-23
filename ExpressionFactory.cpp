@@ -4,11 +4,11 @@
 
 #include "ExpressionFactory.h"
 #include <stack>
-#include "Expression/Plus.h"
+#include "Expression/PlusExpression.h"
 #include "Expression/NumExpression.h"
-#include "Expression/Minus.h"
-#include "Expression/Multiply.h"
-#include "Expression/Divide.h"
+#include "Expression/MinusExpression.h"
+#include "Expression/MultiplyExpression.h"
+#include "Expression/DivideExpression.h"
 
 Expression* ExpressionFactory::getExpression(vector<string> postfix) {
     stack<Expression*> expressionStack;

@@ -2,7 +2,7 @@
 // Created by shay on 12/17/18.
 //
 
-#include "Divide.h"
+#include "DivideExpression.h"
 
 double Divide::calculate() {
     return this->getLeft()->calculate() / this->getRight()->calculate();

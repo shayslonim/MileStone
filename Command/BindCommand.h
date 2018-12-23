@@ -9,11 +9,11 @@
 #define FIRST 1
 #define SECOND 4
 
-class Bind : public Command
+class BindCommand : public Command
 {
     Maps* maps;
 public:
-    Bind(Maps* maps) {
+    BindCommand(Maps* maps) {
         this->maps = maps;
     }
     void execute(vector<string>::iterator);

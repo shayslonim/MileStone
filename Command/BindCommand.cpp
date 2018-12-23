@@ -5,7 +5,7 @@
 #include "BindCommand.h"
 
 // The vector is expected to include strings without spaces, ex: var breaks = bind "/controls/flight/speedbrake"
-void Bind::execute(vector<string>::iterator iter) {
+void BindCommand::execute(vector<string>::iterator iter) {
     if (iter[0] == "var") {
         this->maps->insertBind(iter[FIRST + 1], iter[SECOND + 1]);
     } else {

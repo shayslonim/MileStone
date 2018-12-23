@@ -6,6 +6,6 @@
 
 //var breaks = bind "/controls/flight/speedbrake"
 //var h0 = heading
-void Var::execute(vector<string>::iterator iter) {
+void VarCommand::execute(vector<string>::iterator iter) {
     this->maps->insertVal(iter[INDEX], 0);
 }

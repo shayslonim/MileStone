@@ -8,11 +8,11 @@
 #include "../Maps.h"
 #define INDEX 1
 
-class Var : public Command
+class VarCommand : public Command
 {
     Maps* maps;
 public:
-    Var(Maps* maps) {
+    VarCommand(Maps* maps) {
         this->maps = maps;
     }
     void execute(vector<string>::iterator);

@@ -6,7 +6,7 @@
 #define MILESTONE_IF_H
 #include "Command.h"
 
-class If : public Command
+class IfCommand : public Command
 {
 public:
     void execute(vector<string>::iterator);

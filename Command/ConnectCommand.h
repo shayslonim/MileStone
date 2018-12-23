@@ -6,7 +6,7 @@
 #define MILESTONE_CONNECT_H
 #include "Command.h"
 
-class Connect : public Command
+class ConnectCommand : public Command
 {
 public:
     void execute(vector<string>::iterator);

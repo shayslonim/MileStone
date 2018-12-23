@@ -6,7 +6,7 @@
 #define MILESTONE_WHILE_H
 #include "Command.h"
 
-class While : public Command
+class WhileCommand : public Command
 {
 public:
     void execute(vector<string>::iterator);

@@ -6,7 +6,7 @@
 #define MILESTONE_OPENDATASERVER_H
 #include "Command.h"
 
-class OpenDataServer : public Command
+class OpenDataServerCommand : public Command
 {
 public:
     void execute(vector<string>::iterator);

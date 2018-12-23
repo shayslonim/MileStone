@@ -13,9 +13,7 @@ class BindCommand : public Command
 {
     Maps* maps;
 public:
-    BindCommand(Maps* maps) {
-        this->maps = maps;
-    }
+    BindCommand(Maps* maps);
     void execute(vector<string>::iterator);
     //vector<string> cut(vector<string>::iterator iter);
 };

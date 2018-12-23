@@ -21,3 +21,7 @@ void EqualsCommand::execute(vector<string>::iterator iter) {
     Expression* exp; // Use ShuntingYard algorithm of Expression on iter[second] until line end @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     this->maps->insertVal(iter[first], exp->calculate());
 }
+
+EqualsCommand::EqualsCommand(Maps* maps) {
+    this->maps = maps;
+}

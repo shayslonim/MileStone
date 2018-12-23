@@ -12,3 +12,7 @@ void BindCommand::execute(vector<string>::iterator iter) {
         this->maps->insertBind(iter[FIRST], iter[SECOND]);
     }
 }
+
+BindCommand::BindCommand(Maps* maps) {
+    this->maps = maps;
+}

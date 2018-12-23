@@ -9,6 +9,7 @@
 class IfCommand : public Command
 {
 public:
+    IfCommand();
     void execute(vector<string>::iterator);
 };
 

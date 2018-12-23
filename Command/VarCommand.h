@@ -12,11 +12,8 @@ class VarCommand : public Command
 {
     Maps* maps;
 public:
-    VarCommand(Maps* maps) {
-        this->maps = maps;
-    }
+    VarCommand(Maps* maps);
     void execute(vector<string>::iterator);
-
 };
 
 #endif //MILESTONE_VAR_H

@@ -9,3 +9,7 @@
 void VarCommand::execute(vector<string>::iterator iter) {
     this->maps->insertVal(iter[INDEX], 0);
 }
+
+VarCommand::VarCommand(Maps* maps) {
+    this->maps = maps;
+}

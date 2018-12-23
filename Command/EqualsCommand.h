@@ -14,9 +14,7 @@ class EqualsCommand : public Command
 {
     Maps* maps;
 public:
-    EqualsCommand(Maps* maps) {
-        this->maps = maps;
-    }
+    EqualsCommand(Maps* maps);
     void execute(vector<string>::iterator);
 };
 

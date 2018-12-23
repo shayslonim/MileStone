@@ -3,3 +3,5 @@
 //
 
 #include "IfCommand.h"
+
+IfCommand::IfCommand() {}

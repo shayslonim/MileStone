@@ -9,6 +9,7 @@
 class ConnectCommand : public Command
 {
 public:
+    ConnectCommand();
     void execute(vector<string>::iterator);
 };
 

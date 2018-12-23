@@ -9,6 +9,7 @@
 class OpenDataServerCommand : public Command
 {
 public:
+    OpenDataServerCommand();
     void execute(vector<string>::iterator);
 };
 

@@ -9,6 +9,7 @@
 class WhileCommand : public Command
 {
 public:
+    WhileCommand();
     void execute(vector<string>::iterator);
 };
 

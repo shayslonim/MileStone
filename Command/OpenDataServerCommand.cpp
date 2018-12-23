@@ -3,3 +3,5 @@
 //
 
 #include "OpenDataServerCommand.h"
+
+OpenDataServerCommand::OpenDataServerCommand() {}

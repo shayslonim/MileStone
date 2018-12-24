@@ -17,6 +17,21 @@ vector<string>* Lexer::lexer(string line) {
     }
     return commands;
 }
+
+string Lexer::removeSpaces(string line) {
+    string newLine = string();
+    bool wasSpace = false;
+    for (int i = 0; i < line.length(); i++) {
+        if (!(line[i] == ' ' && wasSpace)) {
+            newLine += line[i];
+        }
+        if (line[i] == ' ') {
+            wasSpace = true;
+        } else {
+            wasSpace = false;
+        }
+    }
+}
 //This is a comment
 string Lexer::separateSpaces(string line) {
     unordered_set<char> operators = {'+', '-', '/', '*', '(', ')', '=',':'};

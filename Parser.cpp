@@ -27,34 +27,34 @@ void Parser::parse(vector <string>* line) {
         BindCommand command = BindCommand(*line, &(this->maps));
         this->commands.push_back(command);
     }
-    if (find(line->begin(), line->end(), CONNECT) != line->end()) {
-        ConnectCommand command = ConnectCommand();
-        this->commands.push_back(command);
-    }
+//    if (find(line->begin(), line->end(), CONNECT) != line->end()) {
+//        ConnectCommand command = ConnectCommand();
+//        this->commands.push_back(command);
+//    }
     if (find(line->begin(), line->end(), EQUALS) != line->end()) {
         EqualsCommand command = EqualsCommand(*line, &(this->maps));
         this->commands.push_back(command);
     }
-    if (find(line->begin(), line->end(), IF) != line->end()) {
-        IfCommand command = IfCommand();
-        this->commands.push_back(command);
-    }
-    if (find(line->begin(), line->end(), OPEN_SERVER) != line->end()) {
-        OpenDataServerCommand command = OpenDataServerCommand();
-        this->commands.push_back(command);
-    }
-    if (find(line->begin(), line->end(), PRINT) != line->end()) {
-        PrintCommand command = PrintCommand();
-        this->commands.push_back(command);
-    }
+//    if (find(line->begin(), line->end(), IF) != line->end()) {
+//        IfCommand command = IfCommand();
+//        this->commands.push_back(command);
+//    }
+//    if (find(line->begin(), line->end(), OPEN_SERVER) != line->end()) {
+//        OpenDataServerCommand command = OpenDataServerCommand();
+//        this->commands.push_back(command);
+//    }
+//    if (find(line->begin(), line->end(), PRINT) != line->end()) {
+//        PrintCommand command = PrintCommand();
+//        this->commands.push_back(command);
+//    }
     if (find(line->begin(), line->end(), VAR) != line->end()) {
         VarCommand command = VarCommand(*line, &(this->maps));
         this->commands.push_back(command);
     }
-    if (find(line->begin(), line->end(), WHILE) != line->end()) {
-        WhileCommand command = WhileCommand();
-        this->commands.push_back(command);
-    }
+//    if (find(line->begin(), line->end(), WHILE) != line->end()) {
+//        WhileCommand command = WhileCommand();
+//        this->commands.push_back(command);
+//    }
 }
 
 Parser::Parser() {

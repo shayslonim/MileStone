@@ -9,9 +9,9 @@
 #include "Expression.h"
 #include "BinaryExpression.h"
 
-class Divide : public BinaryExpression {
+class DivideExpression : public BinaryExpression {
 public:
-    Divide(Expression* left, Expression* right);
+    DivideExpression(Expression* left, Expression* right);
 
     double calculate() override;
 

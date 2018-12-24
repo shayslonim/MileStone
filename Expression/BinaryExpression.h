@@ -5,8 +5,9 @@
 #ifndef MILESTONE_BINARYEXPRESSION_H
 #define MILESTONE_BINARYEXPRESSION_H
 
-
 #include "Expression.h"
+#define TRUE 1
+#define FALSE 0
 
 class BinaryExpression : public Expression {
 private:

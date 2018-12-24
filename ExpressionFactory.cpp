@@ -26,16 +26,16 @@ Expression* ExpressionFactory::getExpression(vector<string> postfix) {
             Expression* exp;
             switch (oper) {
                 case '+':
-                    exp = new Plus(num1, num2);
+                    exp = new PlusExpression(num1, num2);
                     break;
                 case '-':
-                    exp = new Minus(num1, num2);
+                    exp = new MinusExpression(num1, num2);
                     break;
                 case '*':
-                    exp = new Multiply(num1, num2);
+                    exp = new MultiplyExpression(num1, num2);
                     break;
                 case '/':
-                    exp = new Divide(num1, num2);
+                    exp = new DivideExpression(num1, num2);
                     break;
                 default:
                     throw "Operator is unknown";

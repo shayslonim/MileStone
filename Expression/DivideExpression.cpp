@@ -4,10 +4,10 @@
 
 #include "DivideExpression.h"
 
-double Divide::calculate() {
+double DivideExpression::calculate() {
     return this->getLeft()->calculate() / this->getRight()->calculate();
 }
 
-Divide::Divide(Expression* left, Expression* right) : BinaryExpression(left, right) {}
+DivideExpression::DivideExpression(Expression* left, Expression* right) : BinaryExpression(left, right) {}
 
 

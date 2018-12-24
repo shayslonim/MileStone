@@ -3,8 +3,8 @@
 //
 
 #include "MinusExpression.h"
-double Minus::calculate() {
+double MinusExpression::calculate() {
     return this->getLeft()->calculate() - this->getRight()->calculate();
 }
 
-Minus::Minus(Expression* left, Expression* right) : BinaryExpression(left, right) {}
+MinusExpression::MinusExpression(Expression* left, Expression* right) : BinaryExpression(left, right) {}

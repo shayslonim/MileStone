@@ -8,9 +8,9 @@
 
 #include "BinaryExpression.h"
 
-class Plus : public BinaryExpression {
+class PlusExpression : public BinaryExpression {
 public:
-    Plus(Expression* left, Expression* right);
+    PlusExpression(Expression* left, Expression* right);
 
     double calculate() override;
 };

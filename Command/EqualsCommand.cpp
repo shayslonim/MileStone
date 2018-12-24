@@ -10,8 +10,8 @@
 //aileron = - roll / 70
 void EqualsCommand::execute(/*vector<string>::iterator iter*/) {
     vector<string>::iterator iter = this->line.begin();
-    int first = FIRST;
-    int second = SECOND;
+    int first = FIRST_EQUALS;
+    int second = SECOND_EQUALS;
     if (iter[0] == "var") {
         first++;
         second++;
@@ -20,6 +20,7 @@ void EqualsCommand::execute(/*vector<string>::iterator iter*/) {
         second++;
     }
     Expression* exp; // Use ShuntingYard algorithm of Expression on iter[second] until line end @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    // Calculate vars to double -> insert to InfixHndler -> insert to factory
     this->maps->insertVal(iter[first], exp->calculate());
 }
 

@@ -43,10 +43,10 @@ void Parser::parse(vector <string>* line) {
 //        OpenDataServerCommand command = OpenDataServerCommand();
 //        this->commands.push_back(command);
 //    }
-//    if (find(line->begin(), line->end(), PRINT) != line->end()) {
-//        PrintCommand command = PrintCommand();
-//        this->commands.push_back(command);
-//    }
+    if (find(line->begin(), line->end(), PRINT) != line->end()) {
+        PrintCommand command = PrintCommand(*line, &(this->maps));
+        this->commands.push_back(command);
+    }
     if (find(line->begin(), line->end(), VAR) != line->end()) {
         VarCommand command = VarCommand(*line, &(this->maps));
         this->commands.push_back(command);

@@ -21,7 +21,7 @@ private:
 
     static bool isOperator(string s);
 
-    static bool isHigherPriority(char operator1, char operator2);
+    static bool isHigherPriority(string operator1, string operator2);
 
     static string charToString(char c);
 };

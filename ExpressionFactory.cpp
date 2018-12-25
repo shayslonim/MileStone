@@ -9,12 +9,18 @@
 #include "Expression/MinusExpression.h"
 #include "Expression/MultiplyExpression.h"
 #include "Expression/DivideExpression.h"
+#include "Expression/BiggerExpression.h"
+#include "Expression/SmallerExpression.h"
+#include "Expression/EqualsExpression.h"
+#include "Expression/BiggerEqualsExpression.h"
+#include "Expression/SmallerEqualsExpression.h"
+#define LEN_STR 1
 
 Expression* ExpressionFactory::getExpression(vector<string> postfix) {
     stack<Expression*> expressionStack;
     for (string &s: postfix) {
         //If the current string is an operator
-        if (s == "+" || s == "-" || s == "*" || s == "/") {
+        if (s == "+" || s == "-" || s == "*" || s == "/" || s == ">" || s == "<" || s == "<=" || s == ">=" || s == "==") {
             char oper = s[0];
             //take two numbers out of the stack
             Expression* num2 = expressionStack.top();
@@ -26,16 +32,35 @@ Expression* ExpressionFactory::getExpression(vector<string> postfix) {
             Expression* exp;
             switch (oper) {
                 case '+':
-                    exp = new Plus(num1, num2);
+                    exp = new PlusExpression(num1, num2);
                     break;
                 case '-':
-                    exp = new Minus(num1, num2);
+                    exp = new MinusExpression(num1, num2);
                     break;
                 case '*':
-                    exp = new Multiply(num1, num2);
+                    exp = new MultiplyExpression(num1, num2);
                     break;
                 case '/':
-                    exp = new Divide(num1, num2);
+                    exp = new DivideExpression(num1, num2);
+                    break;
+                case '>':
+                    if (s.length() > LEN_STR) { // ">="
+                        exp = new BiggerEqualsExpression(num1, num2);
+                    }
+                    else {
+                        exp = new BiggerExpression(num1, num2);
+                    }
+                    break;
+                case '<':
+                    if (s.length() > LEN_STR) { // "<="
+                        exp = new SmallerEqualsExpression(num1, num2);
+                    }
+                    else {
+                        exp = new SmallerExpression(num1, num2);
+                    }
+                    break;
+                case '=': //"=="
+                    exp = new EqualsExpression(num1, num2);
                     break;
                 default:
                     throw "Operator is unknown";

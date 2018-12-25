@@ -9,10 +9,10 @@
 #include "BinaryExpression.h"
 #include "Expression.h"
 
-class Minus : public BinaryExpression {
+class MinusExpression : public BinaryExpression {
 
 public:
-    Minus(Expression* left, Expression* right);
+    MinusExpression(Expression* left, Expression* right);
 
     double calculate() override;
 };

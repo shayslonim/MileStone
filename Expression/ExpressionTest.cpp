@@ -15,7 +15,7 @@ void ExpressionTest::doTest() {
     int testsCount = 0;
     //------------------ test 1 -----------------
     testsCount++;
-    Expression* ex1 = new Plus(one, two);
+    Expression* ex1 = new PlusExpression(one, two);
     if (ex1->calculate() != 3) {
         cout << "Test 1 failed!\n";
     } else {
@@ -24,7 +24,7 @@ void ExpressionTest::doTest() {
 
     //------------------ test 2 -----------------
     testsCount++;
-    Expression* ex2 = new Divide(five, two);
+    Expression* ex2 = new DivideExpression(five, two);
     if (ex2->calculate() != 2.5) {
         cout << "Test 2 failed!\n";
     } else {
@@ -35,7 +35,7 @@ void ExpressionTest::doTest() {
     // * + 5 2 / 2 - 100 99
     //(5 + 2) * (2 / (100 - 99))
     testsCount++;
-    Expression* ex3 = new Multiply(new Plus(five, two), new Divide(two, new Minus(new NumExpression(100), new NumExpression(99))));
+    Expression* ex3 = new MultiplyExpression(new PlusExpression(five, two), new DivideExpression(two, new MinusExpression(new NumExpression(100), new NumExpression(99))));
     if (ex3->calculate() != 14) {
         cout << "Test 3 failed!\n";
     } else {

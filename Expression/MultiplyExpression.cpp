@@ -4,11 +4,11 @@
 
 #include "MultiplyExpression.h"
 
-double Multiply::calculate() {
+double MultiplyExpression::calculate() {
     return this->getLeft()->calculate() * this->getRight()->calculate();
 }
 
-Multiply::Multiply(Expression* left, Expression* right) : BinaryExpression(left, right) {
+MultiplyExpression::MultiplyExpression(Expression* left, Expression* right) : BinaryExpression(left, right) {
 
 }
 

@@ -9,10 +9,10 @@
 #include "Expression.h"
 #include "BinaryExpression.h"
 
-class Multiply : public BinaryExpression {
+class MultiplyExpression : public BinaryExpression {
 
 public:
-    Multiply(Expression* left, Expression* right);
+    MultiplyExpression(Expression* left, Expression* right);
 
     double calculate() override;
 

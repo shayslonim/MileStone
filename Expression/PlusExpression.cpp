@@ -4,8 +4,8 @@
 
 #include "PlusExpression.h"
 
-double Plus::calculate() {
+double PlusExpression::calculate() {
     return this->getLeft()->calculate() + this->getRight()->calculate();
 }
 
-Plus::Plus(Expression* left, Expression* right) : BinaryExpression(left, right) {}
+PlusExpression::PlusExpression(Expression* left, Expression* right) : BinaryExpression(left, right) {}

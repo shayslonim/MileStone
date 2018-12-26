@@ -7,16 +7,23 @@
 
 #include <string>
 #include <vector>
-#include "Parser.h"
+#include <stack>
 #include "Maps.h"
+#include "Command/ConditionCommand.h"
+
 using namespace std;
 
 class Parser {
     Maps maps;
     vector<Command> commands;
+    //ConditionCommand* condition;
+    stack<ConditionCommand*> conditions;
+    bool addToCondition;
+    int countCondition;
 public:
     Parser();
     void parse(vector<string>* line);
+    void add(Command command);
 };
 
 

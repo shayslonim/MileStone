@@ -4,6 +4,8 @@
 
 #ifndef MILESTONE_EXPRESSION_H
 #define MILESTONE_EXPRESSION_H
+#define TRUE 1
+#define FALSE 0
 
 /**
  * The Expression interface represents an expression - whether its a numeric expression like numbers and arithmetic

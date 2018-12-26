@@ -19,4 +19,4 @@ add_executable(MileStone main.cpp Lexer.cpp Lexer.h Command/Command.h Parser.cpp
         Expression/BiggerEqualsExpression.cpp Expression/SmallerEqualsExpression.h Expression/SmallerEqualsExpression.cpp
         Expression/SmallerExpression.h Expression/SmallerExpression.cpp Expression/EqualsExpression.h
         Expression/EqualsExpression.cpp Command/ServerReader.h Command/ServerReader.cpp
-        )
+        Command/ConditionCommand.cpp Command/ConditionCommand.h)

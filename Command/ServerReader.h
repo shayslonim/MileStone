@@ -6,12 +6,23 @@
 #define MILESTONE_SERVERLISTENER_H
 
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <netdb.h>
+#include <unistd.h>
+#include <netinet/in.h>
+#include <string.h>
+#include <sys/socket.h>
+
+#include <string>
+#include <map>
+
 class ServerReader {
 public:
-    static void* readFromServer(void*) {
+    static void* readFromServer(void*);
 
-
-    }
+private:
+    static std::map<std::string, double> createArgumentsList();
 };
 
 

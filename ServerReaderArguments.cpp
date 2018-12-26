@@ -15,3 +15,9 @@ int ServerReaderArguments::getTimesPerSecond() const {
 Maps* ServerReaderArguments::getMaps() const {
     return maps;
 }
+
+ServerReaderArguments::ServerReaderArguments(int portId, int timesPerSecond, Maps* maps) {
+    this->portId;
+    this->timesPerSecond;
+    this->maps = maps;
+}

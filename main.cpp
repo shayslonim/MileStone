@@ -1,26 +1,27 @@
 #include <iostream>
-#include "Expression/ExpressionTest.h"
 #include "Lexer.h"
+#include "Parser.h"
 #include <unordered_set>
 #include <thread>
-#include "InfixHandler.h"
+#include <fstream>
 
 static void printVector(vector<string> array);
 
-int main() {
-//    //var x = -3
-//    string line = string() + "yay" + '"' + "+divide/ love" + '"' + "() wow + + 3+";
-//    //string line = "3+";
-//    cout << "before: " << line << std::endl;
-//    //ExpressionTest::doTest();
-//    cout << "after: " << Lexer::separateSpaces(line) << std::endl;
+int main(int argc, char* argv[]) {
+    ifstream inFile;
+    string buffer;
+    inFile.open(argv[0]);
+    if (!inFile) {
+        cerr << "Unable to open file datafile.txt";
+        exit(1);   // call system to stop
+    }
+    vector<string> lines;
+    while (getline(inFile, buffer)) {
+        lines.push_back(buffer);
+    }
+    vector<string>::iterator iter = lines.begin();
 
-
-    InfixHandler converter;
-    vector<string> result = converter.convertToPostfix({"1", "+", "5", "/", "3"});
-    printVector(result);
-    result = converter.convertToPostfix({"(", "1", "+", "5", ")", "/", "3"});
-    printVector(result);
+    //todo: call parser with the iterator
     return 0;
 
 }

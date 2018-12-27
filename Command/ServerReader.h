@@ -16,13 +16,13 @@
 
 #include <string>
 #include <map>
-
+#include "../Maps.h"
 class ServerReader {
 public:
     static void* readFromServer(void*);
 
 private:
-    static std::map<std::string, double> createArgumentsList();
+    static double* updateArgumentsList();
 };
 
 

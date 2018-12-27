@@ -26,6 +26,13 @@ public:
     string getReversedBind(string val);
 
     double getVal(string key);
+
+    /**
+     * The funciton would get a binded server variable and set its value
+     * @param var the variable to be set in the table
+     * @param val the value to set the variable in the table
+     */
+    void setValue(string var, double val);
 };
 
 #endif //PROJECT_VARBINDMAP_H

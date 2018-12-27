@@ -1,0 +1,17 @@
+//This is just a backup for the main function - where we wrote some small tests.
+//I made a backup so I can delete its contents
+//Do not put this file in the final project! thanks :)
+
+//    //var x = -3
+//    string line = string() + "yay" + '"' + "+divide/ love" + '"' + "() wow + + 3+";
+//    //string line = "3+";
+//    cout << "before: " << line << std::endl;
+//    //ExpressionTest::doTest();
+//    cout << "after: " << Lexer::separateSpaces(line) << std::endl;
+
+
+//    InfixHandler converter;
+//    vector<string> result = converter.convertToPostfix({"1", "+", "5", "/", "3"});
+//    printVector(result);
+//    result = converter.convertToPostfix({"(", "1", "+", "5", ")", "/", "3"});
+//    printVector(result);

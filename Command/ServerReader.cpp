@@ -59,8 +59,11 @@ void* ServerReader::readFromServer(void*) {
         exit(1);
     }
 
-    string a;
-    while (true) {
+    while (/*no one told me to close the socket*/) {
+        string a;
+        while (a.find('\n') != string::npos) {
+
+        }
         bzero(buffer, 256);
         n = read(newsockfd, buffer, 255);
         a += buffer;
@@ -68,14 +71,43 @@ void* ServerReader::readFromServer(void*) {
         //If the new-line char is in the string
         if (a.find('\n') != string::npos) {
             //double b[23]
-            map<string,double> argumentsMap =createArgumentsList();
+            double* arguments = updateArgumentsList();
 
             a = a.substr(a.find('\n'));
+
 
         }
 
     }
     // close socket
+    close(newsockfd);
 
 
+}
+
+double* ServerReader::updateArgumentsList(double* values) {
+    Maps maps;//todo: set the map to be the same map as we use
+    maps.setValue("instrumentation/airspeed-indicator/indicated-speed-kt", values[0]);
+    maps.setValue("/instrumentation/altimeter/indicated-altitude-ft", values[1]);
+    maps.setValue("/instrumentation/altimeter/pressure-alt-ft", values[2]);
+    maps.setValue("/instrumentation/attitude-indicator/indicated-pitch-deg", values[3]);
+    maps.setValue("/instrumentation/attitude-indicator/indicated-roll-deg", values[4]);
+    maps.setValue("/instrumentation/attitude-indicator/internal-pitch-deg", values[5]);
+    maps.setValue("/instrumentation/attitude-indicator/internal-roll-deg", values[6]);
+    maps.setValue("/instrumentation/encoder/indicated-altitude-ft", values[7]);
+    maps.setValue("/instrumentation/encoder/pressure-alt-ft", values[8]);
+    maps.setValue("/instrumentation/gps/indicated-altitude-ft", values[9]);
+    maps.setValue("/instrumentation/gps/indicated-ground-speed-kt", values[10]);
+    maps.setValue("/instrumentation/gps/indicated-vertical-speed", values[11]);
+    maps.setValue("/instrumentation/heading-indicator/indicated-heading-deg", values[12]);
+    maps.setValue("/instrumentation/magnetic-compass/indicated-heading-deg", values[13]);
+    maps.setValue("/instrumentation/slip-skid-ball/indicated-slip-skid", values[14]);
+    maps.setValue("/instrumentation/turn-indicator/indicated-turn-rate", values[15]);
+    maps.setValue("/instrumentation/vertical-speed-indicator/indicated-speed-fpm", values[16]);
+    maps.setValue("/controls/flight/aileron", values[17]);
+    maps.setValue("/controls/flight/elevator", values[18]);
+    maps.setValue("/controls/flight/rudder", values[19]);
+    maps.setValue("/controls/flight/flaps", values[20]);
+    maps.setValue("/controls/engines/current-engine/throttle", values[21]);
+    maps.setValue("/engines/engine/rpm", values[22]);
 }

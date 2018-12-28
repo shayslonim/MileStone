@@ -9,55 +9,55 @@ void Parser::parse(vector<vector<string>> line) {
     ConditionCommand* conditionCommand;
     Command command;
     for (vector<vector<string>>::iterator iter=line.begin(); iter!=line.end(); ++iter) {
-        if (find(line.begin(), line.end(), CLOSE) != line.end()) {
+        if (find(iter->begin(), iter->end(), CLOSE) != iter->end()) {
             this->addToCondition = false;
             conditionCommand->execute();
             conditionLines.clear();
         }
-        if (find(line.begin(), line.end(), BIND) != line.end()) {
+        if (find(iter->begin(), iter->end(), BIND) != iter->end()) {
             command = BindCommand(*iter, &(this->maps));
             this->executeIfNeeded(command);
             this->addToConditionIfNeeded(&conditionLines,*iter);
         }
-        if (find(line.begin(), line.end(), CONNECT) != line.end()) {
+        if (find(iter->begin(), iter->end(), CONNECT) != iter->end()) {
             command = ConnectCommand();
             this->executeIfNeeded(command);
             this->addToConditionIfNeeded(&conditionLines,*iter);
         }
-        if (find(line.begin(), line.end(), EQUALS) != line.end()) {
+        if (find(iter->begin(), iter->end(), EQUALS) != iter->end()) {
             command = EqualsCommand(*iter, &(this->maps));
             this->executeIfNeeded(command);
             this->addToConditionIfNeeded(&conditionLines,*iter);
         }
-        if (find(line.begin(), line.end(), IF) != line.end()) {
+        if (find(iter->begin(), iter->end(), IF) != iter->end()) {
             this->addToCondition = true;
             conditionCommand = new IfCommand(*iter);
         }
-        if (find(line.begin(), line.end(), WHILE) != line.end()) {
+        if (find(iter->begin(), iter->end(), WHILE) != iter->end()) {
             this->addToCondition = true;
             conditionCommand = new WhileCommand(*iter);
         }
-        if (find(line.begin(), line.end(), OPEN_SERVER) != line.end()) {
+        if (find(iter->begin(), iter->end(), OPEN_SERVER) != iter->end()) {
             command = OpenDataServerCommand();
             this->executeIfNeeded(command);
             this->addToConditionIfNeeded(&conditionLines,*iter);
         }
-        if (find(line.begin(), line.end(), PRINT) != line.end()) {
+        if (find(iter->begin(), iter->end(), PRINT) != iter->end()) {
             command = PrintCommand(*iter, &(this->maps));
             this->executeIfNeeded(command);
             this->addToConditionIfNeeded(&conditionLines,*iter);
         }
-        if (find(line.begin(), line.end(), VAR) != line.end()) {
+        if (find(iter->begin(), iter->end(), VAR) != iter->end()) {
             command = VarCommand(*iter, &(this->maps));
             this->executeIfNeeded(command);
             this->addToConditionIfNeeded(&conditionLines,*iter);
         }
-        if (find(line.begin(), line.end(), SLEEP) != line.end()) {
+        if (find(iter->begin(), iter->end(), SLEEP) != iter->end()) {
             command = SleepCommand();
             this->executeIfNeeded(command);
             this->addToConditionIfNeeded(&conditionLines,*iter);
         }
-        if (find(line.begin(), line.end(), EXIT) != line.end()) {
+        if (find(iter->begin(), iter->end(), EXIT) != iter->end()) {
             command = ExitCommand();
             this->executeIfNeeded(command);
             this->addToConditionIfNeeded(&conditionLines,*iter);

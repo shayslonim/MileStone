@@ -7,7 +7,9 @@
 #include "Command.h"
 #include "../Expression/Expression.h"
 #include "../ExpressionFactory.h"
-#include "../Parser.h"
+// #include "../Parser.h"
+
+class Parser;
 
 class ConditionCommand : public Command
 {

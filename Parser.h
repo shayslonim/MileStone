@@ -8,8 +8,9 @@
 #include <string>
 #include <vector>
 #include <stack>
+#include <regex>
 #include "Maps.h"
-#include "Command/ConditionCommand.h"
+// #include "Command/ConditionCommand.h"
 #include "Command/BindCommand.h"
 #include "Command/ConnectCommand.h"
 #include "Command/EqualsCommand.h"
@@ -37,9 +38,10 @@
 
 using namespace std;
 
+class ConditionCommand;
+
 class Parser {
     Maps maps;
-    Parser* inner;
     bool addToCondition;
     // Lexer lex;
 //    vector<Command> commands;

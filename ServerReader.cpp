@@ -143,5 +143,5 @@ double* ServerReader::createArgumentsList(string valuesString) {
     }
     return (double*)valuesArr;
 
-
+    //Hi Shira
 }

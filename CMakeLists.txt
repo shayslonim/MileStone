@@ -3,7 +3,7 @@ project(MileStone)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_FLAGS -pthread)
-add_executable(MileStone main.cpp Lexer.cpp Lexer.h Command/Command.h Parser.cpp Parser.h  Expression/VarExpression.cpp
+add_executable(MileStone main.cpp Lexer.cpp Lexer.h Command/Command.h   Expression/VarExpression.cpp
         Expression/VarExpression.h ExpressionFactory.cpp ExpressionFactory.h Expression/Expression.h
         Expression/NumExpression.cpp Expression/NumExpression.h Expression/MultiplyExpression.cpp
         Expression/MultiplyExpression.h Expression/DivideExpression.cpp
@@ -18,5 +18,7 @@ add_executable(MileStone main.cpp Lexer.cpp Lexer.h Command/Command.h Parser.cpp
         Expression/BiggerExpression.h Expression/BiggerExpression.cpp Expression/BiggerEqualsExpression.h
         Expression/BiggerEqualsExpression.cpp Expression/SmallerEqualsExpression.h Expression/SmallerEqualsExpression.cpp
         Expression/SmallerExpression.h Expression/SmallerExpression.cpp Expression/EqualsExpression.h
-        Expression/EqualsExpression.cpp Command/ServerReader.h Command/ServerReader.cpp
-        Command/ConditionCommand.cpp Command/ConditionCommand.h Command/ExitCommand.cpp Command/ExitCommand.h)
+        Expression/EqualsExpression.cpp ServerReader.h ServerReader.cpp
+         Command/ExitCommand.cpp Command/ExitCommand.h SocketBooleans.cpp SocketBooleans.h Command/ConnectCommand.cpp
+        Parser.cpp Command/ConnectCommand.cpp)
+#Command/ConditionCommand.cpp Command/ConditionCommand.h Parser.cpp Parser.h

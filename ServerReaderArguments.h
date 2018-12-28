@@ -9,6 +9,7 @@
 #include "Maps.h"
 
 struct ServerReaderArguments {
+private:
     int portId;
     int timesPerSecond;
     Maps* maps;

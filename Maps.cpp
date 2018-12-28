@@ -36,3 +36,7 @@ Maps::Maps() {
     this->reversedBindMap = map<string, string>();
     this->valMap = map<string, double>();
 }
+
+void Maps::setValue(string var, double val) {
+    //todo: implement
+}

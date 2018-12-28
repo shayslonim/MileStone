@@ -16,13 +16,15 @@
 
 #include <string>
 #include <map>
-#include "../Maps.h"
+#include "Maps.h"
 class ServerReader {
 public:
     static void* readFromServer(void*);
 
 private:
-    static double* updateArgumentsList();
+    static void updateArgumentsListInMaps(double* values, Maps* maps);
+
+    static double* createArgumentsList(string valuesString);
 };
 
 

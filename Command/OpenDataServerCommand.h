@@ -10,13 +10,16 @@
 class OpenDataServerCommand : public Command
 {
 public:
-    OpenDataServerCommand();
-    void execute(/*vector<string>::iterator*/);
+    //OpenDataServerCommand();
+    void execute(/*vector<string>::iterator*/) override;
 
 private:
     int portId;
     int timesPerSecond;
     Maps* maps;
+public:
+    OpenDataServerCommand(int portId, int timesPerSecond, Maps* maps);
+
 };
 
 #endif //MILESTONE_OPENDATASERVER_H

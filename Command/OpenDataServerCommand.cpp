@@ -4,12 +4,9 @@
 
 #include <pthread.h>
 #include "OpenDataServerCommand.h"
-#include "ServerReader.h"
+#include "../ServerReader.h"
 #include "../ServerReaderArguments.h"
 
-OpenDataServerCommand::OpenDataServerCommand() {
-
-}
 
 void OpenDataServerCommand::execute() {
     pthread_t serverThread;
@@ -19,4 +16,9 @@ void OpenDataServerCommand::execute() {
     pthread_create(&serverThread, nullptr, ServerReader::readFromServer, args);
     // pthread_create(&serverThread, nullptr,server)
 }
+
+OpenDataServerCommand::OpenDataServerCommand(int portId, int timesPerSecond, Maps* maps) : portId(portId),
+                                                                                           timesPerSecond(
+                                                                                                   timesPerSecond),
+                                                                                           maps(maps) {}
 

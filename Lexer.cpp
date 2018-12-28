@@ -4,6 +4,8 @@
 
 #include "Lexer.h"
 
+Lexer::Lexer() {};
+
 vector<string>* Lexer::lexer(string line) {
     vector<string>* commands = new vector<string>();
     string command = "";

@@ -13,9 +13,21 @@
 //}
 
 void IfCommand::execute(/*vector<string>::iterator*/) {
-    if (this->booleanExpression->calculate() == TRUE) {
-        for (int i = 0; i < this->commands.size(); i++) {
-            this->commands[i].execute();
-        }
+    if (this->isExpressionTrue()) {
+        this->doParse();
     }
+}
+
+IfCommand::IfCommand(vector<string> line) : ConditionCommand(line) {}
+
+bool IfCommand::isExpressionTrue() {
+    return ConditionCommand::isExpressionTrue();
+}
+
+void IfCommand::doParse() {
+    ConditionCommand::doParse();
+}
+
+void IfCommand::addCommand(vector<string> command) {
+    ConditionCommand::addCommand(command);
 }

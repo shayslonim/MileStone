@@ -13,9 +13,21 @@
 //}
 
 void WhileCommand::execute(/*vector<string>::iterator*/) {
-    while (this->booleanExpression->calculate() == TRUE) {
-        for (int i = 0; i < this->commands.size(); i++) {
-            this->commands[i].execute();
-        }
+    if (this->isExpressionTrue()) {
+        this->doParse();
     }
+}
+
+WhileCommand::WhileCommand(vector<string> line) : ConditionCommand(line) {}
+
+bool WhileCommand::isExpressionTrue() {
+    return ConditionCommand::isExpressionTrue();
+}
+
+void WhileCommand::doParse() {
+    ConditionCommand::doParse();
+}
+
+void WhileCommand::addCommand(vector<string> command) {
+    ConditionCommand::addCommand(command);
 }

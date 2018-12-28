@@ -9,12 +9,12 @@
 
 class WhileCommand : public ConditionCommand
 {
-    Expression* booleanExpression;
-    vector<Command> commands;
 public:
-    WhileCommand(vector<string> line);
+    WhileCommand(vector<string> line); //Expression - boolean, list of commands to excecute
     void execute(/*vector<string>::iterator*/);
-    void addCommand(Command command);
+    void addCommand(vector<string> command);
+    bool isExpressionTrue();
+    void doParse();
 };
 
 #endif //MILESTONE_WHILE_H

@@ -4,8 +4,8 @@
 
 #include "ConditionCommand.h"
 
-void ConditionCommand::addCommand(Command command) {
-    this->commands.push_back(command);
+void ConditionCommand::addCommand(vector<string> command) {
+    this->commands->push_back(command);
 }
 
 ConditionCommand::ConditionCommand(vector<string> line) {
@@ -23,4 +23,12 @@ ConditionCommand::ConditionCommand(vector<string> line) {
         }
     }
     this->booleanExpression = exp;
+}
+
+void ConditionCommand::doParse() {
+    this->parser->parse(this->commands);
+}
+
+bool ConditionCommand::isExpressionTrue() {
+    return this->booleanExpression->calculate() == TRUE;
 }

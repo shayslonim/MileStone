@@ -15,9 +15,9 @@ using namespace std;
 
 class Lexer {
 public:
+    Lexer();
     vector<string>* lexer(string line);
-
-public: //private
+private:
     static string separateSpaces(string line);
     static string removeSpaces(string line);
 };

@@ -50,7 +50,9 @@ class Parser {
 //    int countCondition;
 public:
     Parser();
-    void parse(vector<vector<string>>* line);
+    void parse(vector<vector<string>> line);
+    void executeIfNeeded(Command command);
+    void addToConditionIfNeeded(vector<vector<string>>* condition, vector<string> line);
 //    void add(Command command);
 };
 

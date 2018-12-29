@@ -52,7 +52,7 @@ void Parser::parse(vector<vector<string>> line) {
             conditionCommand = new WhileCommand(*iter, &(this->maps));
         }
         if (find(iter->begin(), iter->end(), OPEN_SERVER) != iter->end()) {
-            OpenDataServerCommand command = OpenDataServerCommand();
+            OpenDataServerCommand command = OpenDataServerCommand(5400, 10, &(this->maps));
             this->executeIfNeeded(command);
             this->addToConditionIfNeeded(&conditionLines,*iter);
         }

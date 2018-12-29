@@ -9,16 +9,23 @@ void ConditionCommand::addCommand(vector<string> command) {
     this->commands->push_back(command);
 }
 
-ConditionCommand::ConditionCommand(vector<string> line, Maps* maps) {
+//ConditionCommand::ConditionCommand(vector<string> line, Maps* maps) {
+//}
+
+//void ConditionCommand::doParse() {
+//    this->parser->parse(*(this->commands));
+//}
+
+bool ConditionCommand::isExpressionTrue() {
     InfixHandler infixHnadler = InfixHandler();
-    ExpressionFactory factory = ExpressionFactory(maps);
+    ExpressionFactory factory = ExpressionFactory(this->maps);
     vector<string> expressionVector;
     bool add = false;
-    for (int i = 0; i < line.size(); i++) {
-        if (line[i] == "(") {
+    for (int i = 0; i < this->line.size(); i++) {
+        if (this->line[i] == "(") {
             add = true;
         }
-        if (line[i] == ")") {
+        if (this->line[i] == ")") {
             add = false;
         }
         if (add) {
@@ -26,13 +33,6 @@ ConditionCommand::ConditionCommand(vector<string> line, Maps* maps) {
         }
     }
     this->booleanExpression = factory.getExpression(infixHnadler.convertToPostfix(expressionVector));
-}
-
-//void ConditionCommand::doParse() {
-//    this->parser->parse(*(this->commands));
-//}
-
-bool ConditionCommand::isExpressionTrue() {
     return this->booleanExpression->calculate() == TRUE;
 }
 

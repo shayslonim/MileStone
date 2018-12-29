@@ -9,6 +9,8 @@
 #include "../Expression/Expression.h"
 
 class IfCommand : public ConditionCommand {
+    vector<string> line;
+    Maps* maps;
 public:
     explicit IfCommand(vector<string> line, Maps* maps); //Expression - boolean, list of commands to excecute
     void execute(/*vector<string>::iterator*/);

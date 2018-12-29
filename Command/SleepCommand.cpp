@@ -3,3 +3,5 @@
 //
 
 #include "SleepCommand.h"
+
+SleepCommand::SleepCommand() {}

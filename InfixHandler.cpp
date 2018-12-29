@@ -134,7 +134,7 @@ string InfixHandler::charToString(char c) {
 }
 
 
-
+InfixHandler::InfixHandler() {}
 
 
 

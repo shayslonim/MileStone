@@ -24,12 +24,8 @@ void EqualsCommand::execute(/*vector<string>::iterator iter*/) {
     if (iter[second] == "bind") {
         second++;
     }
-    iter += second;
-    int i = second;
-    while (iter != this->line.end()) {
-        expressionVector.push_back(iter[i]);
-        i++;
-        iter++;
+    for (int i = second; i < this->line.size(); i++) {
+        expressionVector.push_back(this->line[i]);
     }
     // Use ShuntingYard algorithm of Expression on iter[second] until line end
     Expression* exp = factory.getExpression(infixHnadler.convertToPostfix(expressionVector));

@@ -10,7 +10,10 @@ void WhileCommand::execute(/*vector<string>::iterator*/) {
 //    }
 }
 
-WhileCommand::WhileCommand(vector<string> line, Maps* maps) : ConditionCommand(line, maps) {}
+WhileCommand::WhileCommand(vector<string> line, Maps* maps) {
+    this->line = line;
+    this->maps = maps;
+}
 
 bool WhileCommand::isExpressionTrue() {
     return ConditionCommand::isExpressionTrue();

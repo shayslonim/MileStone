@@ -15,14 +15,17 @@ class ConditionCommand : public Command
 {
     Expression* booleanExpression;
     vector<vector<string>>* commands;
+    vector<string> line;
+    Maps* maps;
     //Parser* parser;
 public:
-    ConditionCommand(vector<string> line, Maps* maps);
-    virtual void execute();
+    // ConditionCommand(vector<string> line, Maps* maps);
+    virtual void execute() override;
     void addCommand(vector<string> command);
     // void doParse();
     bool isExpressionTrue();
     vector<vector<string>>* getCommands();
+    ~ConditionCommand() = default;
 };
 
 #endif //MILESTONE_CONDITIONCOMMAND_H

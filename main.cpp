@@ -10,7 +10,7 @@
 static void printVector(vector<string> array);
 
 int main(int argc, char* argv[]) {
-
+    //THIS IS A COMMENT I MADE SO I CAN PUSH THE FILE - HI SHIRA DID YOU GET IT? ;P
     ifstream inFile;
     string buffer;
     inFile.open(argv[0]);

@@ -7,7 +7,7 @@
 #include "Command.h"
 #include "../Expression/Expression.h"
 #include "../ExpressionFactory.h"
-#include "../Parser.h"
+//#include "../Parser.h"
 
 //class Parser;
 
@@ -15,13 +15,14 @@ class ConditionCommand : public Command
 {
     Expression* booleanExpression;
     vector<vector<string>>* commands;
-    Parser* parser;
+    //Parser* parser;
 public:
     ConditionCommand(vector<string> line, Maps* maps);
     virtual void execute();
     void addCommand(vector<string> command);
-    void doParse();
+    // void doParse();
     bool isExpressionTrue();
+    vector<vector<string>>* getCommands();
 };
 
 #endif //MILESTONE_CONDITIONCOMMAND_H

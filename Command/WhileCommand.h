@@ -14,7 +14,8 @@ public:
     void execute(/*vector<string>::iterator*/);
     void addCommand(vector<string> command);
     bool isExpressionTrue();
-    void doParse();
+    vector<vector<string>>* getCommands();
+    //void doParse();
 };
 
 #endif //MILESTONE_WHILECOMMAND_H

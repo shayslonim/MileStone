@@ -28,10 +28,14 @@ ConditionCommand::ConditionCommand(vector<string> line, Maps* maps) {
     this->booleanExpression = factory.getExpression(infixHnadler.convertToPostfix(expressionVector));
 }
 
-void ConditionCommand::doParse() {
-    this->parser->parse(*(this->commands));
-}
+//void ConditionCommand::doParse() {
+//    this->parser->parse(*(this->commands));
+//}
 
 bool ConditionCommand::isExpressionTrue() {
     return this->booleanExpression->calculate() == TRUE;
+}
+
+vector<vector<string>>* ConditionCommand::getCommands() {
+    return this->commands;
 }

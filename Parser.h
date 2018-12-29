@@ -11,14 +11,14 @@
 #include <regex>
 #include "Maps.h"
 // #include "Command/ConditionCommand.h"
+// #include "Command/IfCommand.h"
+// #include "Command/WhileCommand.h"
 #include "Command/BindCommand.h"
 #include "Command/ConnectCommand.h"
 #include "Command/EqualsCommand.h"
-#include "Command/IfCommand.h"
 #include "Command/OpenDataServerCommand.h"
 #include "Command/PrintCommand.h"
 #include "Command/VarCommand.h"
-#include "Command/WhileCommand.h"
 #include "Command/SleepCommand.h"
 #include "Command/ExitCommand.h"
 #include "Command/Command.h"
@@ -39,6 +39,8 @@
 using namespace std;
 
 class ConditionCommand;
+class IfCommand;
+class WhileCommand;
 
 class Parser {
     Maps maps;

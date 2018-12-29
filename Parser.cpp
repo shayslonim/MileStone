@@ -31,11 +31,11 @@ void Parser::parse(vector<vector<string>> line) {
         }
         if (find(iter->begin(), iter->end(), IF) != iter->end()) {
             this->addToCondition = true;
-            conditionCommand = new IfCommand(*iter);
+            conditionCommand = new IfCommand(*iter, &(this->maps));
         }
         if (find(iter->begin(), iter->end(), WHILE) != iter->end()) {
             this->addToCondition = true;
-            conditionCommand = new WhileCommand(*iter);
+            conditionCommand = new WhileCommand(*iter, &(this->maps));
         }
         if (find(iter->begin(), iter->end(), OPEN_SERVER) != iter->end()) {
             command = OpenDataServerCommand();

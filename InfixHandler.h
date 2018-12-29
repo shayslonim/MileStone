@@ -12,6 +12,7 @@ using namespace std;
 
 class InfixHandler {
 public:
+    InfixHandler();
     vector<string> convertToPostfix(vector<string> infix);
 
 private:

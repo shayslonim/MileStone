@@ -58,7 +58,7 @@ vector<string> InfixHandler::convertToPostfix(vector<string> infix) {
             //pop the left bracket from the stack and discard it
             operatorsStack.pop();
         } else {
-            throw exception();
+            outputQueue.push(s);
         }
     }
 

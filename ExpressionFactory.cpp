@@ -14,7 +14,11 @@
 #include "Expression/EqualsExpression.h"
 #include "Expression/BiggerEqualsExpression.h"
 #include "Expression/SmallerEqualsExpression.h"
+#include "Expression/VarExpression.h"
+
 #define LEN_STR 1
+
+ExpressionFactory::ExpressionFactory(Maps* maps) {}
 
 Expression* ExpressionFactory::getExpression(vector<string> postfix) {
     stack<Expression*> expressionStack;
@@ -69,7 +73,12 @@ Expression* ExpressionFactory::getExpression(vector<string> postfix) {
             expressionStack.push(exp);
         } else { //The current string is a number
             //convert the string to double and push it the stack
-            expressionStack.push(new NumExpression(stod(s)));
+            try {
+                expressionStack.push(new NumExpression(stod(s)));
+            }
+            catch (exception ex) {
+                expressionStack.push(new VarExpression(s, maps));
+            }
         }
     }
     //There should be one item in the stack which is the return value.

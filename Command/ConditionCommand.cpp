@@ -3,12 +3,15 @@
 //
 
 #include "ConditionCommand.h"
+#include "../InfixHandler.h"
 
 void ConditionCommand::addCommand(vector<string> command) {
     this->commands->push_back(command);
 }
 
-ConditionCommand::ConditionCommand(vector<string> line) {
+ConditionCommand::ConditionCommand(vector<string> line, Maps* maps) {
+    InfixHandler infixHnadler = InfixHandler();
+    ExpressionFactory factory = ExpressionFactory(maps);
     vector<string> expressionVector;
     bool add = false;
     for (int i = 0; i < line.size(); i++) {
@@ -22,11 +25,11 @@ ConditionCommand::ConditionCommand(vector<string> line) {
             expressionVector.push_back(line[i]);
         }
     }
-    this->booleanExpression = exp;
+    this->booleanExpression = factory.getExpression(infixHnadler.convertToPostfix(expressionVector));
 }
 
 void ConditionCommand::doParse() {
-    this->parser->parse(this->commands);
+    this->parser->parse(*(this->commands));
 }
 
 bool ConditionCommand::isExpressionTrue() {

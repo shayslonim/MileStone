@@ -11,10 +11,15 @@
 using namespace std;
 
 #include "Expression/Expression.h"
+#include "Maps.h"
+
 /**
  * The expression factory creates an expression from a vector of string.
  */
 class ExpressionFactory {
+    Maps* maps;
+public:
+    ExpressionFactory(Maps* maps);
     /**
      * The getExpression function gets a postfix expression and creates the appropriate Expression* from it.
      * @param postfix the vector<string> of operators and numbers, in postfix notation

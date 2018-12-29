@@ -7,9 +7,9 @@
 #include "Command.h"
 #include "../Expression/Expression.h"
 #include "../ExpressionFactory.h"
-// #include "../Parser.h"
+#include "../Parser.h"
 
-class Parser;
+//class Parser;
 
 class ConditionCommand : public Command
 {
@@ -17,7 +17,7 @@ class ConditionCommand : public Command
     vector<vector<string>>* commands;
     Parser* parser;
 public:
-    ConditionCommand(vector<string> line);
+    ConditionCommand(vector<string> line, Maps* maps);
     virtual void execute();
     void addCommand(vector<string> command);
     void doParse();

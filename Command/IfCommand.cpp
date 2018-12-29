@@ -18,7 +18,7 @@ void IfCommand::execute(/*vector<string>::iterator*/) {
     }
 }
 
-IfCommand::IfCommand(vector<string> line) : ConditionCommand(line) {}
+IfCommand::IfCommand(vector<string> line, Maps* maps) : ConditionCommand(line, maps) {}
 
 bool IfCommand::isExpressionTrue() {
     return ConditionCommand::isExpressionTrue();

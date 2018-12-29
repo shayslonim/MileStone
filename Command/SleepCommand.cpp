@@ -5,3 +5,7 @@
 #include "SleepCommand.h"
 
 SleepCommand::SleepCommand() {}
+
+void SleepCommand::execute() {
+    Command::execute();
+}

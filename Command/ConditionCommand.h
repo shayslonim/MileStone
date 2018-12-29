@@ -25,7 +25,7 @@ public:
     // void doParse();
     bool isExpressionTrue();
     vector<vector<string>>* getCommands();
-    ~ConditionCommand() = default;
+    ~ConditionCommand();
 };
 
 #endif //MILESTONE_CONDITIONCOMMAND_H

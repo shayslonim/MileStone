@@ -5,3 +5,7 @@
 #include "ConnectCommand.h"
 
 ConnectCommand::ConnectCommand() {}
+
+void ConnectCommand::execute() {
+    Command::execute();
+}

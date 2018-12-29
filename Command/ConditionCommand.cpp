@@ -39,3 +39,9 @@ bool ConditionCommand::isExpressionTrue() {
 vector<vector<string>>* ConditionCommand::getCommands() {
     return this->commands;
 }
+
+ConditionCommand::~ConditionCommand() {}
+
+void ConditionCommand::execute() {
+    Command::execute();
+}

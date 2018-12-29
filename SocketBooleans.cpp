@@ -3,6 +3,7 @@
 //
 
 #include "SocketBooleans.h"
+bool SocketBooleans::stopServerReader = false; //initialize the stopServerReader boolean with default value of false
 
 bool SocketBooleans::isStopServerReader() {
     return stopServerReader;

@@ -8,9 +8,11 @@
 
 class ExitCommand : public Command
 {
+    bool shouldExit;
 public:
     ExitCommand();
     void execute(/*vector<string>::iterator*/);
+    bool getShouldExit();
 };
 
 

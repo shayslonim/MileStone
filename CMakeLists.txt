@@ -21,5 +21,5 @@ add_executable(MileStone main.cpp Lexer.cpp Lexer.h Command/Command.h   Expressi
         Expression/EqualsExpression.cpp ServerReader.h ServerReader.cpp
          Command/ExitCommand.cpp Command/ExitCommand.h SocketBooleans.cpp SocketBooleans.h Command/ConnectCommand.cpp
         Parser.cpp Command/ConnectCommand.cpp Command/ConditionCommand.cpp Command/ConditionCommand.h
-        Command/SleepCommand.cpp Command/SleepCommand.h)
+        Command/SleepCommand.cpp Command/SleepCommand.h ServerUpdater.cpp ServerUpdater.h)
 #Command/ConditionCommand.cpp Command/ConditionCommand.h Parser.cpp Parser.h

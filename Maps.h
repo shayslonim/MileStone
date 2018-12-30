@@ -7,6 +7,7 @@
 #include <string>
 #include <map>
 #include "Command/Command.h"
+#include "ServerUpdater.h"
 using namespace std;
 
 class Maps
@@ -16,6 +17,7 @@ class Maps
     map<string, string> reversedBindMap; // variable to path
     map<string, double> varToValMap; // variable to value: breaks = 5
     map<string, double> pathToValMap; // path to value: "/controls/flight/speedbrake" = 5
+    ServerUpdater* updater;
 public:
     Maps();
     // Double-binding

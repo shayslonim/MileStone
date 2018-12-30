@@ -71,7 +71,7 @@ void Parser::parse(vector<vector<string>> line) {
             this->addToConditionIfNeeded(&conditionLines,*iter);
         }
         if (find(iter->begin(), iter->end(), SLEEP) != iter->end()) {
-            SleepCommand command = SleepCommand();
+            SleepCommand command = SleepCommand(*iter, &(this->maps));
             this->executeIfNeeded(command);
             this->addToConditionIfNeeded(&conditionLines,*iter);
         }

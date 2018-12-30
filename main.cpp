@@ -1,38 +1,33 @@
 #include <iostream>
-#include "Lexer.h"
-#include "Parser.h"
-#include "Command/OpenDataServerCommand.h"
-#include "Command/IfCommand.h"
+#include "Expression/ExpressionTest.h"
 #include <unordered_set>
-#include <thread>
-#include <fstream>
 
-static void printVector(vector<string> array);
+int main() {
+    std::string line = "yay+divide/ love () wow + + ++";
+    std::cout << "before: " << line << std::endl;
+    //ExpressionTest::doTest();
+    std::unordered_set<char> operators = {'+', '-', '/', '*', '(', ')', '='};
+    int i = 0;
+    bool inserted = false;
+    while (i < line.length()) {
+        if (operators.find(line[i]) != operators.end()) {
+            if (i < line.length() - 1 && line[i + 1] != ' ') {
+                line.insert(i + 1, " ");
+            }
+            if (i > 0 && line[i - 1] != ' ') {
+                line.insert(i, " ");
+                inserted = true;
+            }
 
-int main(int argc, char* argv[]) {
-    //THIS IS A COMMENT I MADE SO I CAN PUSH THE FILE - HI SHIRA DID YOU GET IT? ;P
-    ifstream inFile;
-    string buffer;
-    inFile.open(argv[0]);
-    if (!inFile) {
-        cerr << "Unable to open file datafile.txt";
-        exit(1);   // call system to stop
+            if (inserted) {
+                i++;
+            }
+            i++;
+
+        }
     }
-    vector<string> lines;
-    while (getline(inFile, buffer)) {
-        lines.push_back(buffer);
-    }
-    vector<string>::iterator iter = lines.begin();
+    std::cout << "after: " << line << std::endl;
 
-//    //todo: call parser with the iterator
-    //OpenDataServerCommand odsc = OpenDataServerCommand(5400, 10, new Maps());
-    //ConditionCommand* command = new IfCommand(std::vector<std::string>());
+    return 0;
 
-}
-
-static void printVector(vector<string> array) {
-    for (string &s:array) {
-        std::cout << s + " ";
-    }
-    cout << endl;
 }

@@ -1,4 +1,9 @@
 //
+// Created by shay on 12/29/18.
+//
+
+#include "ServerReader.h"
+//
 // Created by shay on 12/23/18.
 //
 
@@ -34,7 +39,7 @@ void* ServerReader::readFromServer(void* arguments) {
 
     /* Initialize socket structure */
     bzero((char*) &serv_addr, sizeof(serv_addr));
-    portId = 5001;
+    // portId = 5001;
 
     serv_addr.sin_family = AF_INET;
     serv_addr.sin_addr.s_addr = INADDR_ANY;
@@ -52,10 +57,11 @@ void* ServerReader::readFromServer(void* arguments) {
 
     listen(sockfd, 5);
     clilen = sizeof(cli_addr);
-
+    cout << "Trying to connect to server.." << std::endl;
     /* Accept actual connection from the client */
     newsockfd = accept(sockfd, (struct sockaddr*) &cli_addr, (socklen_t*) &clilen);
-    std::cout << "There is a connection!"; //This is printed if openDataServer connects to the flightgear! :D
+    std::cout << "There is a connection!"
+              << std::endl; //This is printed if openDataServer connects to the flightgear! :D
 
     if (newsockfd < 0) {
         perror("ERROR on accept");
@@ -63,26 +69,30 @@ void* ServerReader::readFromServer(void* arguments) {
     }
 
     /* If connection is established then start communicating */
-
+    cout << "reading..." << std::endl;
     while (!SocketBooleans::isStopServerReader()) {
         string varsAndVals;
-        while (varsAndVals.find('\n') != string::npos) {
-            bzero(buffer, 256);
-            n = read(newsockfd, buffer, 255);
-            if (n < 0) {
-                perror("ERROR reading from socket");
-                exit(1);
-            }
-            varsAndVals += buffer;
+
+        bzero(buffer, 256);
+        n = read(newsockfd, buffer, 255);
+        if (n < 0) {
+            perror("ERROR reading from socket");
+            exit(1);
+        }
+        varsAndVals += buffer;
+
+        if (varsAndVals.find('\n') != string::npos) {
+            cout << "current value is:" << varsAndVals << std::endl;
+            double* values = createArgumentsList(varsAndVals);
+            updateArgumentsListInMaps(values, maps);
+            //remove the used variables in the string and keep the variables after the \n
+            varsAndVals = varsAndVals.substr(varsAndVals.find('\n'));
+
+            //sleep for timesPerSecondTime
+            usleep(1.0 / timesPerSecond);
         }
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        double* values = createArgumentsList(varsAndVals);
-        updateArgumentsListInMaps(values, maps);
-        //remove the used variables in the string and keep the variables after the \n
-        varsAndVals = varsAndVals.substr(varsAndVals.find('\n'));
 
-        //sleep for timesPerSecondTime
-        usleep(1.0 / timesPerSecond);
     }
     //close socket
     close(newsockfd);
@@ -119,8 +129,7 @@ void ServerReader::updateArgumentsListInMaps(double* values, Maps* maps) {
 }
 
 double* ServerReader::createArgumentsList(string valuesString) {
-    array<double,23>*  valuesArr = new array<double,23>();
-    // 1, 45, 45, 65, 4, 6, 34,10.3, 44, 4, 234
+    array<double, 23>* valuesArr = new array<double, 23>();
     vector<string> result;
     stringstream ss = stringstream(valuesString);
     while (ss.good()) {
@@ -128,11 +137,17 @@ double* ServerReader::createArgumentsList(string valuesString) {
         getline(ss, substr, ',');
         result.push_back(substr);
     }
+    cout << flush;
+    for (vector<string>::iterator it = result.begin(); it != result.end(); ++it) {
+        cout << *it << " ";
+    }
+    cout << std::endl;
+
 
     if (result.size() != 23) {
-        perror("not enough arguments were passed to createArgumentsList function");
-        cout
-                << "not enough arguments were passed to createArgumentsList function";//todo: delete this after checking that it works
+        // perror("not enough arguments were passed to createArgumentsList function");
+        cout << "not enough arguments were passed to createArgumentsList function"
+             << std::endl;//todo: delete this after checking that it works
     } else {
         int i = 0;
         for (vector<string>::iterator it = result.begin(); it < result.end(); it++) {
@@ -141,6 +156,6 @@ double* ServerReader::createArgumentsList(string valuesString) {
         }
 
     }
-    return (double*)valuesArr;
+    return (double*) valuesArr;
 
 }

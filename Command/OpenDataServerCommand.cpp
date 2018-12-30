@@ -18,7 +18,5 @@ void OpenDataServerCommand::execute() {
 }
 
 OpenDataServerCommand::OpenDataServerCommand(int portId, int timesPerSecond, Maps* maps) : portId(portId),
-                                                                                           timesPerSecond(
-                                                                                                   timesPerSecond),
+                                                                                           timesPerSecond(timesPerSecond),
                                                                                            maps(maps) {}
-

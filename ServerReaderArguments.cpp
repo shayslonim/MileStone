@@ -17,7 +17,7 @@ Maps* ServerReaderArguments::getMaps() const {
 }
 
 ServerReaderArguments::ServerReaderArguments(int portId, int timesPerSecond, Maps* maps) {
-    this->portId;
-    this->timesPerSecond;
+    this->portId = portId;
+    this->timesPerSecond = timesPerSecond;
     this->maps = maps;
 }

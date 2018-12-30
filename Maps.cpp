@@ -16,7 +16,8 @@ void Maps::insertBind(string key, string val) {
 }
 
 void Maps::insertVal(string key, double val) {
-    valMap[key] = val;
+    varToValMap[key] = val;
+    this->pathToValMap[getReversedBind(key)] = val;
 }
 
 string Maps::getBind(string key) {
@@ -27,16 +28,23 @@ string Maps::getReversedBind(string val) {
     return reversedBindMap[val];
 }
 
-double Maps::getVal(string key) {
-    return valMap[key];
+double Maps::getValbyPath(string path) {
+    return this->pathToValMap[path];
+}
+
+double Maps::getValbyVar(string key) {
+    return varToValMap[key];
 }
 
 Maps::Maps() {
     this->bindMap = map<string, string>();
     this->reversedBindMap = map<string, string>();
-    this->valMap = map<string, double>();
+    this->varToValMap = map<string, double>();
 }
 
 void Maps::setValue(string var, double val) {
-    //todo: implement
+    this->pathToValMap[var] = val;
+    if (this->bindMap.find(var) != this->bindMap.end() && this->varToValMap[var] != val) {
+        this->varToValMap[var] = val;
+    }
 }

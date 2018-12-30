@@ -3,9 +3,17 @@
 //
 
 #include "ExitCommand.h"
-
-ExitCommand::ExitCommand() {}
+#include "../SocketBooleans.h"
 
 void ExitCommand::execute() {
-    Command::execute();
+    this->shouldExit = true;
+    SocketBooleans::setStopServerReader(true);
+}
+
+bool ExitCommand::getShouldExit() {
+    return this->shouldExit;
+}
+
+ExitCommand::ExitCommand() {
+    this->shouldExit = false;
 }

@@ -5,7 +5,7 @@
 #include "VarExpression.h"
 
 double VarExpression::calculate() {
-    return this->maps->getVal(this->value);
+    return this->maps->getValbyVar(this->value);
 }
 
 VarExpression::VarExpression(string value, Maps* maps) {

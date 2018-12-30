@@ -8,7 +8,11 @@ void Parser::parse(vector<vector<string>> line) {
     vector<vector<string>> conditionLines; // Lines that are inside parentheses {...}
     ConditionCommand* conditionCommand;
     string condition;
+    bool stop = false;
     for (vector<vector<string>>::iterator iter=line.begin(); iter!=line.end(); ++iter) {
+        if (stop) {
+            break;
+        }
         if (find(iter->begin(), iter->end(), CLOSE) != iter->end()) {
             this->addToCondition = false;
             this->inner = new Parser();
@@ -75,6 +79,7 @@ void Parser::parse(vector<vector<string>> line) {
             ExitCommand command = ExitCommand();
             this->executeIfNeeded(command);
             this->addToConditionIfNeeded(&conditionLines,*iter);
+            stop = command.getShouldExit();
         }
     }
 }

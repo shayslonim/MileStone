@@ -17,6 +17,11 @@ void PrintCommand::execute(/*vector<string>::iterator*/) {
     }
     // The second string represents a variable
     else {
-        cout << this->maps->getValbyVar(this->line[INDEX_PRINT]) << endl;
+        try {
+            cout << this->maps->getValbyVar(this->line[INDEX_PRINT]) << endl;
+        }
+        catch (exception ex) {
+            cout << this->maps->getValbyPath(this->line[INDEX_PRINT]) << endl;
+        }
     }
 }

@@ -17,8 +17,10 @@ void Maps::insertBind(string key, string val) {
 
 void Maps::insertVal(string key, double val) {
     varToValMap[key] = val;
-    this->pathToValMap[getReversedBind(key)] = val;
-    this->updater->update(getReversedBind(key), val);
+    if (this->reversedBindMap.find(key) != this->reversedBindMap.end()) {
+        this->pathToValMap[getReversedBind(key)] = val;
+        this->updater->update(getReversedBind(key), val);
+    }
 }
 
 string Maps::getBind(string key) {
@@ -45,7 +47,7 @@ Maps::Maps() {
 
 void Maps::setValue(string var, double val) {
     this->pathToValMap[var] = val;
-    if (this->bindMap.find(var) != this->bindMap.end() && this->varToValMap[var] != val) {
+    if (this->bindMap.find(var) != this->bindMap.end()) {
         this->varToValMap[var] = val;
     }
     this->updater->update(var, val);

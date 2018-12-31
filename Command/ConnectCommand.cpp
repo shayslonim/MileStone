@@ -4,7 +4,9 @@
 
 #include "ConnectCommand.h"
 
-ConnectCommand::ConnectCommand() {}
+ConnectCommand::ConnectCommand(vector<string> line, Maps* maps) {
+    this->maps = maps;
+}
 
 void ConnectCommand::execute() {
     Command::execute();

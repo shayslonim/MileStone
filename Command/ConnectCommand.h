@@ -5,13 +5,16 @@
 #ifndef MILESTONE_CONNECT_H
 #define MILESTONE_CONNECT_H
 #include "Command.h"
+#include "../Maps.h"
 
 class ConnectCommand : public Command
 {
+    string hostName;
+    int portId;
+    Maps* maps;
 public:
-    ConnectCommand(string hostName, int portId);
+    ConnectCommand(vector<string> line, Maps* maps);
     void execute(/*vector<string>::iterator*/);
-
 };
 
 #endif //MILESTONE_CONNECT_H

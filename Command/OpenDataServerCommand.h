@@ -18,7 +18,7 @@ private:
     int timesPerSecond;
     Maps* maps;
 public:
-    OpenDataServerCommand(int portId, int timesPerSecond, Maps* maps);
+//    OpenDataServerCommand(int portId, int timesPerSecond, Maps* maps);
     OpenDataServerCommand(vector<string> line, Maps* maps);
 
 };

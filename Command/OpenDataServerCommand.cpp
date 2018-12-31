@@ -20,3 +20,7 @@ void OpenDataServerCommand::execute() {
 OpenDataServerCommand::OpenDataServerCommand(int portId, int timesPerSecond, Maps* maps) : portId(portId),
                                                                                            timesPerSecond(timesPerSecond),
                                                                                            maps(maps) {}
+
+OpenDataServerCommand::OpenDataServerCommand(vector<string> line, Maps* maps) {
+
+}

@@ -9,8 +9,9 @@
 class ConnectCommand : public Command
 {
 public:
-    ConnectCommand();
+    ConnectCommand(string hostName, int portId);
     void execute(/*vector<string>::iterator*/);
+
 };
 
 #endif //MILESTONE_CONNECT_H

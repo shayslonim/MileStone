@@ -43,7 +43,7 @@ using namespace std;
 //class WhileCommand;
 
 class Parser {
-    Maps maps;
+    Maps* maps;
     bool addToCondition;
     Parser* inner;
     // Lexer lex;
@@ -52,7 +52,7 @@ class Parser {
 //    stack<ConditionCommand*> conditions;
 //    int countCondition;
 public:
-    Parser();
+    Parser(Maps* maps);
     void parse(vector<vector<string>> line);
     void executeIfNeeded(Command command);
     void addToConditionIfNeeded(vector<vector<string>>* condition, vector<string> line);

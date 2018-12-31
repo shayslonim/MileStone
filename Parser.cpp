@@ -15,7 +15,7 @@ void Parser::parse(vector<vector<string>> line) {
         }
         if (find(iter->begin(), iter->end(), CLOSE) != iter->end()) {
             this->addToCondition = false;
-            this->inner = new Parser();
+            this->inner = new Parser(this->maps);
             //conditionCommand->execute();
             if (condition == IF) {
                 if (conditionCommand->isExpressionTrue()) {
@@ -31,7 +31,7 @@ void Parser::parse(vector<vector<string>> line) {
             conditionLines.clear();
         }
         if (find(iter->begin(), iter->end(), BIND) != iter->end()) {
-            BindCommand command = BindCommand(*iter, &(this->maps));
+            BindCommand command = BindCommand(*iter, this->maps);
             this->executeIfNeeded(command);
             this->addToConditionIfNeeded(&conditionLines,*iter);
         }
@@ -41,37 +41,37 @@ void Parser::parse(vector<vector<string>> line) {
             this->addToConditionIfNeeded(&conditionLines,*iter);
         }
         if (find(iter->begin(), iter->end(), EQUALS) != iter->end()) {
-            EqualsCommand command = EqualsCommand(*iter, &(this->maps));
+            EqualsCommand command = EqualsCommand(*iter, this->maps);
             this->executeIfNeeded(command);
             this->addToConditionIfNeeded(&conditionLines,*iter);
         }
         if (find(iter->begin(), iter->end(), IF) != iter->end()) {
             this->addToCondition = true;
             condition = IF;
-            conditionCommand = new IfCommand(*iter, &(this->maps));
+            conditionCommand = new IfCommand(*iter, this->maps);
         }
         if (find(iter->begin(), iter->end(), WHILE) != iter->end()) {
             this->addToCondition = true;
             condition = WHILE;
-            conditionCommand = new WhileCommand(*iter, &(this->maps));
+            conditionCommand = new WhileCommand(*iter, this->maps);
         }
         if (find(iter->begin(), iter->end(), OPEN_SERVER) != iter->end()) {
-            OpenDataServerCommand command = OpenDataServerCommand(5400, 10, &(this->maps));
+            OpenDataServerCommand command = OpenDataServerCommand(5400, 10, this->maps);
             this->executeIfNeeded(command);
             this->addToConditionIfNeeded(&conditionLines,*iter);
         }
         if (find(iter->begin(), iter->end(), PRINT) != iter->end()) {
-            PrintCommand command = PrintCommand(*iter, &(this->maps));
+            PrintCommand command = PrintCommand(*iter, this->maps);
             this->executeIfNeeded(command);
             this->addToConditionIfNeeded(&conditionLines,*iter);
         }
         if (find(iter->begin(), iter->end(), VAR) != iter->end()) {
-            VarCommand command = VarCommand(*iter, &(this->maps));
+            VarCommand command = VarCommand(*iter, this->maps);
             this->executeIfNeeded(command);
             this->addToConditionIfNeeded(&conditionLines,*iter);
         }
         if (find(iter->begin(), iter->end(), SLEEP) != iter->end()) {
-            SleepCommand command = SleepCommand(*iter, &(this->maps));
+            SleepCommand command = SleepCommand(*iter, this->maps);
             this->executeIfNeeded(command);
             this->addToConditionIfNeeded(&conditionLines,*iter);
         }
@@ -84,8 +84,8 @@ void Parser::parse(vector<vector<string>> line) {
     }
 }
 
-Parser::Parser() {
-    this->maps = Maps();
+Parser::Parser(Maps* maps) {
+    this->maps = maps;
     this->addToCondition = false;
 }
 

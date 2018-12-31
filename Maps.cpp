@@ -43,6 +43,8 @@ Maps::Maps() {
     this->bindMap = map<string, string>();
     this->reversedBindMap = map<string, string>();
     this->varToValMap = map<string, double>();
+    this->pathToValMap = map<string, double>();
+    this->updater = new ServerUpdater();
 }
 
 void Maps::setValue(string var, double val) {

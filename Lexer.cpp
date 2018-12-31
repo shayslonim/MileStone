@@ -7,6 +7,8 @@
 Lexer::Lexer() {};
 
 vector<string>* Lexer::lexer(string line) {
+    line = separateSpaces(line);
+    line = removeSpaces(line);
     vector<string>* commands = new vector<string>();
     string command = "";
     for (int i = 0; i < line.length(); i++) {
@@ -33,6 +35,7 @@ string Lexer::removeSpaces(string line) {
             wasSpace = false;
         }
     }
+    return newLine;
 }
 //This is a comment
 string Lexer::separateSpaces(string line) {

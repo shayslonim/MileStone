@@ -136,5 +136,7 @@ string InfixHandler::charToString(char c) {
 
 InfixHandler::InfixHandler() {}
 
-
+bool InfixHandler::isANumber(string s) {
+    return isNumber(s);
+}
 

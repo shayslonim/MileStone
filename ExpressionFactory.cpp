@@ -3,22 +3,12 @@
 //
 
 #include "ExpressionFactory.h"
-#include <stack>
-#include "Expression/PlusExpression.h"
-#include "Expression/NumExpression.h"
-#include "Expression/MinusExpression.h"
-#include "Expression/MultiplyExpression.h"
-#include "Expression/DivideExpression.h"
-#include "Expression/BiggerExpression.h"
-#include "Expression/SmallerExpression.h"
-#include "Expression/EqualsExpression.h"
-#include "Expression/BiggerEqualsExpression.h"
-#include "Expression/SmallerEqualsExpression.h"
-#include "Expression/VarExpression.h"
 
 #define LEN_STR 1
 
-ExpressionFactory::ExpressionFactory(Maps* maps) {}
+ExpressionFactory::ExpressionFactory(Maps* maps) {
+    this->maps = maps;
+}
 
 Expression* ExpressionFactory::getExpression(vector<string> postfix) {
     stack<Expression*> expressionStack;
@@ -86,4 +76,13 @@ Expression* ExpressionFactory::getExpression(vector<string> postfix) {
         throw "Something went wrong with the algorithm. Is it possible that the expression isn't correct?";
     }
     return expressionStack.top();
+}
+
+Expression* ExpressionFactory::getExpressionFromUnorderedLine(vector<string> line, int start, int end) {
+    InfixHandler infixHnadler = InfixHandler();
+    vector<string> expressionVector;
+    for (int i = start; i < end; i++) {
+            expressionVector.push_back(line[i]);
+    }
+    return getExpression(infixHnadler.convertToPostfix(expressionVector));
 }

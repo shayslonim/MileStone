@@ -14,7 +14,7 @@ class InfixHandler {
 public:
     InfixHandler();
     vector<string> convertToPostfix(vector<string> infix);
-
+    bool isANumber(string s);
 private:
     static bool isNumber(string s);
 

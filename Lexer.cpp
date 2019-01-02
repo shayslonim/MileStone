@@ -39,7 +39,7 @@ string Lexer::removeSpaces(string line) {
 }
 //This is a comment
 string Lexer::separateSpaces(string line) {
-    unordered_set<char> operators = {'+', '-', '/', '*', '(', ')', '=',':'};
+    unordered_set<char> operators = {'+', '-', '/', '*', '(', ')', '=', ':', ','};
     int i = 0;
     bool inserted = false;
     bool isNum = false;

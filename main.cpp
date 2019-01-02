@@ -16,11 +16,12 @@ int main(int argc, char* argv[]) {
     string buffer;
 
     if (argc < 2) {
-        throw  "file name not entered";
+        cerr << "file name not entered";
+
     }
     inFile.open(argv[1]);
     if (!inFile) {
-        cerr << "Unable to open file datafile.txt";
+        cerr << "Unable to open file: " << argv[1];
         exit(1);   // call system to stop
     }
     vector<string> lines;

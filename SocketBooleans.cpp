@@ -4,8 +4,8 @@
 
 #include "SocketBooleans.h"
 
-bool SocketBooleans::stopServerReader = false; //initialize the stopServerReader boolean with default value of
-bool SocketBooleans::readingStarted = false;
+bool SocketBooleans::stopServerReader = false; //initialize the stopServerReader boolean with default value of false
+bool SocketBooleans::readingStarted = false; //initialize the readingStarted boolean with default value of false
 
 bool SocketBooleans::isStopServerReader() {
     return stopServerReader;

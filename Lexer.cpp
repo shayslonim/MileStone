@@ -11,13 +11,28 @@ vector<string>* Lexer::lexer(string line) {
     line = removeSpaces(line);
     vector<string>* commands = new vector<string>();
     string command = "";
+    bool quote = false;
     for (int i = 0; i < line.length(); i++) {
+        if (line[i] == '"') {
+            if (quote) {
+                quote = false;
+            } else {
+                quote = true;
+            }
+        }
+        if (quote) {
+            if (line[i] != '"') {
+                commands->push_back(command);
+                command = "";
+            }
+        } else {
         if (line[i] == ' ' || line[i] == '\t') {
             commands->push_back(command);
             command = "";
         } else {
             command += line[i];
         }
+    }
     }
     commands->push_back(command);
     command = "";

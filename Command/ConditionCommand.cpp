@@ -19,8 +19,12 @@ void ConditionCommand::addCommand(vector<string> command) {
 bool ConditionCommand::isExpressionTrue() {
     InfixHandler infixHnadler = InfixHandler();
     ExpressionFactory factory = ExpressionFactory(this->maps);
-    vector<string> expressionVector;
-    expressionVector = vector<string>(line.begin() + 1, line.end());
+    vector<string> expressionVector = vector<string>();
+    //expressionVector = vector<string>(line.begin() + 1, line.end());
+    //cout << this->line.size() <<std::endl;
+    for (int i = 1; i < this->line.size(); i++) {
+        expressionVector.push_back(this->line[i]);
+    }
 //    int count = 0;
 //    for (int i = 1; i < this->line.size(); i++) {
 ////        if (this->line[i] == "(") {

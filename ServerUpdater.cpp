@@ -11,6 +11,9 @@
 #include <netinet/in.h>
 
 #include <string.h>
+
+#include <iostream>
+
 #include "ServerUpdater.h"
 
 ServerUpdater::ServerUpdater(const string &hostName, int portId) : hostName(hostName), portId(portId) {}
@@ -63,10 +66,9 @@ void ServerUpdater::update(string path, double val) {
      */
     char buffer[256];
     int n;
-
-    printf("Please enter the message: ");
     bzero(buffer, 256);
-    string commandString = string("set ") + path + " " + to_string(val); //set
+    string commandString = string("set") + " " + path + " " + to_string(val); //set
+    std::cout << "setting: " << commandString << std::endl;
     std::copy(path.begin(), path.end(), buffer); //instead of fgets in Michael's code.
 
     /* Send message to the server */

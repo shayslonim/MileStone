@@ -82,14 +82,14 @@ void* ServerReader::readFromServer(void* arguments) {
         varsAndVals += buffer;
 
         if (varsAndVals.find('\n') != string::npos) {
-            cout << "current value is:" << varsAndVals << std::endl;
+/////////////            cout << "current value is:" << varsAndVals << std::endl;
             double* values = createArgumentsList(varsAndVals);
             updateArgumentsListInMaps(values, maps);
             //remove the used variables in the string and keep the variables after the \n
             varsAndVals = varsAndVals.substr(varsAndVals.find('\n'));
 
             //sleep for timesPerSecondTime
-            usleep(1.0 / timesPerSecond); //Maybe delete this
+////////////////// / / / /            usleep(1.0 / timesPerSecond); //Maybe delete this
         }
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -141,11 +141,11 @@ double* ServerReader::createArgumentsList(string valuesString) {
         getline(ss, substr, ',');
         result.push_back(substr);
     }
-    cout << flush;
-    for (vector<string>::iterator it = result.begin(); it != result.end(); ++it) {
-        cout << *it << " ";
-    }
-    cout << std::endl;
+//    cout << flush;
+//    for (vector<string>::iterator it = result.begin(); it != result.end(); ++it) {
+//        cout << *it << " ";
+//    }
+//    cout << std::endl;
 
 
     if (result.size() != 23) {

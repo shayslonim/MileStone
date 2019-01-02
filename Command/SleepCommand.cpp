@@ -24,5 +24,7 @@ SleepCommand::SleepCommand(vector<string> &line, Maps* maps) {
 }
 
 void SleepCommand::execute() {
-    sleep(this->time/MILI);
+    sleep(this->time / MILI);
+    //delete this next line:
+    std::cout << "zzz sleeping for " << (this->time / MILI) << " ms(?)" << endl;
 }

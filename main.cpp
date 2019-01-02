@@ -6,6 +6,7 @@
 #include "Command/OpenDataServerCommand.h"
 #include "Command/IfCommand.h"
 #include <unordered_set>
+#include <algorithm>
 #include <fstream>
 
 int main(int argc, char* argv[]) {
@@ -31,7 +32,10 @@ int main(int argc, char* argv[]) {
     //vector<string>::iterator iter = lines.begin();
     vector<vector<string>> lexerLines;
     for (int i = 0; i < lines.size(); i++) {
-        lexerLines.push_back(*lexer.lexer(lines[i]));
+        auto line = *lexer.lexer(lines[i]);
+        vector<string> result;
+        std::copy_if(line.begin(), line.end(), back_inserter(result), [](string s){return !s.empty();});
+        lexerLines.push_back(result);
     }
     parser.parse(lexerLines);
     //OpenDataServerCommand odsc = OpenDataServerCommand(5400, 10, new Maps());

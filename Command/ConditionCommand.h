@@ -20,7 +20,6 @@ class ConditionCommand : public Command
     //Parser* parser;
 public:
     // ConditionCommand(vector<string> line, Maps* maps);
-    virtual void execute() override;
     void addCommand(vector<string> command);
     // void doParse();
     bool isExpressionTrue();

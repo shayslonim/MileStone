@@ -7,9 +7,10 @@
 void Parser::parse(vector<vector<string>> line) {
     vector<vector<string>> conditionLines; // Lines that are inside parentheses {...}
     ConditionCommand* conditionCommand;
+    Command* command;
     string condition;
     bool stop = false;
-    for (vector<vector<string>>::iterator iter=line.begin(); iter!=line.end(); ++iter) {
+    for (vector<vector<string>>::iterator iter = line.begin(); iter != line.end(); ++iter) {
         if (stop) {
             break;
         }
@@ -18,6 +19,7 @@ void Parser::parse(vector<vector<string>> line) {
             this->inner = new Parser(this->maps);
             //conditionCommand->execute();
             if (condition == IF) {
+
                 if (conditionCommand->isExpressionTrue()) {
                     this->inner->parse(*(conditionCommand->getCommands()));
                 }
@@ -31,19 +33,19 @@ void Parser::parse(vector<vector<string>> line) {
             conditionLines.clear();
         }
         if (find(iter->begin(), iter->end(), BIND) != iter->end()) {
-            BindCommand command = BindCommand(*iter, this->maps);
+            command = new BindCommand(*iter, this->maps);
             this->executeIfNeeded(command);
-            this->addToConditionIfNeeded(&conditionLines,*iter);
+            this->addToConditionIfNeeded(&conditionLines, *iter);
         }
         if (find(iter->begin(), iter->end(), CONNECT) != iter->end()) {
-            ConnectCommand command = ConnectCommand(*iter, this->maps);
+            command = new ConnectCommand(*iter, this->maps);
             this->executeIfNeeded(command);
-            this->addToConditionIfNeeded(&conditionLines,*iter);
+            this->addToConditionIfNeeded(&conditionLines, *iter);
         }
         if (find(iter->begin(), iter->end(), EQUALS) != iter->end()) {
-            EqualsCommand command = EqualsCommand(*iter, this->maps);
+            command = new EqualsCommand(*iter, this->maps);
             this->executeIfNeeded(command);
-            this->addToConditionIfNeeded(&conditionLines,*iter);
+            this->addToConditionIfNeeded(&conditionLines, *iter);
         }
         if (find(iter->begin(), iter->end(), IF) != iter->end()) {
             this->addToCondition = true;
@@ -56,30 +58,30 @@ void Parser::parse(vector<vector<string>> line) {
             conditionCommand = new WhileCommand(*iter, this->maps);
         }
         if (find(iter->begin(), iter->end(), OPEN_SERVER) != iter->end()) {
-            OpenDataServerCommand command = OpenDataServerCommand(*iter, this->maps);
+            command = new OpenDataServerCommand(*iter, this->maps);
             this->executeIfNeeded(command);
-            this->addToConditionIfNeeded(&conditionLines,*iter);
+            this->addToConditionIfNeeded(&conditionLines, *iter);
         }
         if (find(iter->begin(), iter->end(), PRINT) != iter->end()) {
-            PrintCommand command = PrintCommand(*iter, this->maps);
+            command = new PrintCommand(*iter, this->maps);
             this->executeIfNeeded(command);
-            this->addToConditionIfNeeded(&conditionLines,*iter);
+            this->addToConditionIfNeeded(&conditionLines, *iter);
         }
         if (find(iter->begin(), iter->end(), VAR) != iter->end()) {
-            VarCommand command = VarCommand(*iter, this->maps);
+            command = new VarCommand(*iter, this->maps);
             this->executeIfNeeded(command);
-            this->addToConditionIfNeeded(&conditionLines,*iter);
+            this->addToConditionIfNeeded(&conditionLines, *iter);
         }
         if (find(iter->begin(), iter->end(), SLEEP) != iter->end()) {
-            SleepCommand command = SleepCommand(*iter, this->maps);
+            command = new SleepCommand(*iter, this->maps);
             this->executeIfNeeded(command);
-            this->addToConditionIfNeeded(&conditionLines,*iter);
+            this->addToConditionIfNeeded(&conditionLines, *iter);
         }
         if (find(iter->begin(), iter->end(), EXIT) != iter->end()) {
-            ExitCommand command = ExitCommand(this->maps);
+            command = new ExitCommand(this->maps);
             this->executeIfNeeded(command);
-            this->addToConditionIfNeeded(&conditionLines,*iter);
-            stop = command.getShouldExit();
+            this->addToConditionIfNeeded(&conditionLines, *iter);
+            //stop = command.getShouldExit();
         }
     }
 }
@@ -89,9 +91,9 @@ Parser::Parser(Maps* maps) {
     this->addToCondition = false;
 }
 
-void Parser::executeIfNeeded(Command command) {
+void Parser::executeIfNeeded(Command* command) {
     if (!this->addToCondition) {
-        command.execute();
+        command->execute();
     }
 }
 

@@ -20,18 +20,19 @@ bool ConditionCommand::isExpressionTrue() {
     InfixHandler infixHnadler = InfixHandler();
     ExpressionFactory factory = ExpressionFactory(this->maps);
     vector<string> expressionVector;
-    bool add = false;
-    for (int i = 0; i < this->line.size(); i++) {
-        if (this->line[i] == "(") {
-            add = true;
-        }
-        if (this->line[i] == ")") {
-            add = false;
-        }
-        if (add) {
-            expressionVector.push_back(line[i]);
-        }
-    }
+    expressionVector = vector<string>(line.begin() + 1, line.end());
+//    int count = 0;
+//    for (int i = 1; i < this->line.size(); i++) {
+////        if (this->line[i] == "(") {
+////            count++;
+////        }
+////        if (this->line[i] == ")") {
+////            count--;
+////        }
+////        if (count > 0) {
+//            expressionVector.push_back(line[i]);
+////        }
+//    }
     this->booleanExpression = factory.getExpression(infixHnadler.convertToPostfix(expressionVector));
     return this->booleanExpression->calculate() == TRUE;
 }
@@ -41,7 +42,3 @@ vector<vector<string>>* ConditionCommand::getCommands() {
 }
 
 ConditionCommand::~ConditionCommand() {}
-
-void ConditionCommand::execute() {
-    Command::execute();
-}

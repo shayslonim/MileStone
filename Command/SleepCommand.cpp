@@ -12,7 +12,6 @@
 SleepCommand::SleepCommand(vector<string> line, Maps* maps) {
     InfixHandler infixHnadler = InfixHandler();
     ExpressionFactory factory = ExpressionFactory(maps);
-    vector<string>::iterator iter = line.begin();
     vector<string> expressionVector;
     int start = START_SLEEP;
     for (int i = start; i < line.size(); i++) {

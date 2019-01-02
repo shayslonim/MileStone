@@ -75,13 +75,14 @@ Expression* ExpressionFactory::getExpression(vector<string> postfix) {
     if (expressionStack.size() != 1) {
         std::cerr << "Something went wrong with the algorithm. Is it possible that the expression isn't correct?";
     }
-    return expressionStack.top();
+    Expression* exp = expressionStack.top();
+    return exp;
 }
 
 Expression* ExpressionFactory::getExpressionFromUnorderedLine(vector<string> line, int start, int end) {
     InfixHandler infixHnadler = InfixHandler();
     vector<string> expressionVector;
-    for (int i = start; i < end; i++) {
+    for (int i = start; i <= end; i++) {
             expressionVector.push_back(line[i]);
     }
     return getExpression(infixHnadler.convertToPostfix(expressionVector));

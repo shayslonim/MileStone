@@ -6,8 +6,8 @@
 #define MILESTONE_BIND_H
 #include "Command.h"
 #include "../Maps.h"
-#define FIRST 1
-#define SECOND 4
+#define FIRST 0
+#define SECOND 3
 
 class BindCommand : public Command
 {

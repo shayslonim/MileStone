@@ -19,7 +19,7 @@ public:
     vector<string>* lexer(string line);
 private:
     static string separateSpaces(string line);
-    static string removeSpaces(string line);
+    static string removeRepeatingSpaces(string line);
 };
 
 

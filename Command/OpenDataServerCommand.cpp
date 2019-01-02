@@ -24,8 +24,6 @@ OpenDataServerCommand::OpenDataServerCommand(vector<string> line, Maps* maps) {
     ExpressionFactory factory = ExpressionFactory(maps);
     int index = 0;
     int indexSecond;
-    vector<string> first;
-    vector<string> second;
     if (find(line.begin(), line.end(), ",") != line.end()) {
         while (line[index] != ",") {
             index++;

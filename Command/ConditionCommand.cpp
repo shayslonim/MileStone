@@ -9,7 +9,9 @@ void ConditionCommand::addCommand(vector<string> command) {
     this->commands->push_back(command);
 }
 
-//ConditionCommand::ConditionCommand(vector<string> line, Maps* maps) {
+//ConditionCommand::ConditionCommand(vector<string> &line, Maps* maps) {
+//    this->line = line;
+//    this->maps = maps;
 //}
 
 //void ConditionCommand::doParse() {
@@ -23,7 +25,9 @@ bool ConditionCommand::isExpressionTrue() {
     //expressionVector = vector<string>(line.begin() + 1, line.end());
     //cout << this->line.size() <<std::endl;
     for (int i = 1; i < this->line.size(); i++) {
-        expressionVector.push_back(this->line[i]);
+        if (this->line[i] != "{") {
+            expressionVector.push_back(this->line[i]);
+        }
     }
 //    int count = 0;
 //    for (int i = 1; i < this->line.size(); i++) {

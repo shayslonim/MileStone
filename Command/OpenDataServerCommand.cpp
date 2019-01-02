@@ -38,5 +38,5 @@ OpenDataServerCommand::OpenDataServerCommand(vector<string> line, Maps* maps) {
         indexSecond = index + 1;
     }
     this->portId = factory.getExpressionFromUnorderedLine(line, 1, index)->calculate();
-    this->timesPerSecond = factory.getExpressionFromUnorderedLine(line, indexSecond, line.size())->calculate();
+    this->timesPerSecond = factory.getExpressionFromUnorderedLine(line, indexSecond, line.size() - 1)->calculate();
 }

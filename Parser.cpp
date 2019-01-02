@@ -76,7 +76,7 @@ void Parser::parse(vector<vector<string>> line) {
             this->addToConditionIfNeeded(&conditionLines,*iter);
         }
         if (find(iter->begin(), iter->end(), EXIT) != iter->end()) {
-            ExitCommand command = ExitCommand();
+            ExitCommand command = ExitCommand(this->maps);
             this->executeIfNeeded(command);
             this->addToConditionIfNeeded(&conditionLines,*iter);
             stop = command.getShouldExit();

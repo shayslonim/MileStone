@@ -66,7 +66,7 @@ void ServerUpdater::update(string path, double val) {
 
     printf("Please enter the message: ");
     bzero(buffer, 256);
-
+    string commandString = string("set ") + path + " " + to_string(val); //set
     std::copy(path.begin(), path.end(), buffer); //instead of fgets in Michael's code.
 
     /* Send message to the server */

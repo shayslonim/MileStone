@@ -48,6 +48,8 @@ public:
      * Set the object that would send updates to the server if
      */
     void setServerUpdater(ServerUpdater* updater);
+
+    void closeServerUpdate();
 };
 
 #endif //PROJECT_VARBINDMAP_H

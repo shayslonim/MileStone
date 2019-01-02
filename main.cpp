@@ -10,6 +10,7 @@
 //>>>>>>> origin/master
 #include <unordered_set>
 #include <fstream>
+
 //
 //
 //int main() {
@@ -44,7 +45,10 @@ int main(int argc, char* argv[]) {
     Parser parser = Parser(&maps);
     ifstream inFile;
     string buffer;
-    inFile.open(argv[0]);
+    if (argc < 2) {
+        throw  "file name not entered";
+    }
+    inFile.open(argv[1]);
     if (!inFile) {
         cerr << "Unable to open file datafile.txt";
         exit(1);   // call system to stop
@@ -55,7 +59,7 @@ int main(int argc, char* argv[]) {
     }
     //vector<string>::iterator iter = lines.begin();
     vector<vector<string>> lexerLines;
-    for (int i = 0; i< lines.size(); i++) {
+    for (int i = 0; i < lines.size(); i++) {
         lexerLines.push_back(*lexer.lexer(lines[i]));
     }
     parser.parse(lexerLines);

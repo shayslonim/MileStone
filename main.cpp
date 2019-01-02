@@ -44,7 +44,7 @@ int main(int argc, char* argv[]) {
     Parser parser = Parser(&maps);
     ifstream inFile;
     string buffer;
-    inFile.open(argv[0]);
+    inFile.open(argv[1]);
     if (!inFile) {
         cerr << "Unable to open file datafile.txt";
         exit(1);   // call system to stop

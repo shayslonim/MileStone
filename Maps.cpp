@@ -67,4 +67,11 @@ void Maps::setServerUpdater(ServerUpdater* updater) {
     this->serverUpdater = updater;
 }
 
+void Maps::closeServerUpdate() {
+    this->serverUpdater->disconnect();
+    this->shouldUpdateServer = false;
+}
+
+
+
 

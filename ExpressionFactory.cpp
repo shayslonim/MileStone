@@ -73,7 +73,7 @@ Expression* ExpressionFactory::getExpression(vector<string> postfix) {
     }
     //There should be one item in the stack which is the return value.
     if (expressionStack.size() != 1) {
-        throw "Something went wrong with the algorithm. Is it possible that the expression isn't correct?";
+        std::cerr << "Something went wrong with the algorithm. Is it possible that the expression isn't correct?";
     }
     return expressionStack.top();
 }

@@ -19,6 +19,8 @@ vector<string>* Lexer::lexer(string line) {
             command += line[i];
         }
     }
+    commands->push_back(command);
+    command = "";
     return commands;
 }
 

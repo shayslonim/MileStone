@@ -9,7 +9,7 @@
 #include <vector>
 
 using namespace std;
-
+#include <iostream>
 #include <stack>
 #include "Expression/Expression.h"
 #include "Maps.h"

@@ -9,17 +9,15 @@ void Parser::parse(vector<vector<string>> line) {
     ConditionCommand* conditionCommand;
     Command* command;
     string condition;
-    bool stop = false;
-    //
+
     for (vector<vector<string>>::iterator iter = line.begin(); iter != line.end(); ++iter) {
-        if (stop) {
-            break;
-        }
+
         if (find(iter->begin(), iter->end(), CLOSE) != iter->end()) {
             this->addToCondition = false;
             this->inner = new Parser(this->maps);
             //conditionCommand->execute();
             if (condition == IF) {
+
                 if (conditionCommand->isExpressionTrue()) {
                     this->inner->parse(*(conditionCommand->getCommands()));
                 }

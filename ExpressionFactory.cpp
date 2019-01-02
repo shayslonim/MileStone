@@ -40,16 +40,14 @@ Expression* ExpressionFactory::getExpression(vector<string> postfix) {
                 case '>':
                     if (s.length() > LEN_STR) { // ">="
                         exp = new BiggerEqualsExpression(num1, num2);
-                    }
-                    else {
+                    } else {
                         exp = new BiggerExpression(num1, num2);
                     }
                     break;
                 case '<':
                     if (s.length() > LEN_STR) { // "<="
                         exp = new SmallerEqualsExpression(num1, num2);
-                    }
-                    else {
+                    } else {
                         exp = new SmallerExpression(num1, num2);
                     }
                     break;
@@ -75,8 +73,7 @@ Expression* ExpressionFactory::getExpression(vector<string> postfix) {
     if (expressionStack.size() != 1) {
         std::cerr << "Something went wrong with the algorithm. Is it possible that the expression isn't correct?";
     }
-    Expression* exp = expressionStack.top();
-    return exp;
+    return expressionStack.top();
 }
 
 Expression* ExpressionFactory::getExpressionFromUnorderedLine(vector<string> line, int start, int end) {

@@ -16,7 +16,7 @@ void OpenDataServerCommand::execute() {
     pthread_create(&serverThread, nullptr, ServerReader::readFromServer, args);
     // pthread_create(&serverThread, nullptr,server)
 }
-//חןןןןןןןןןןן                                                                                     maps(maps) {}
+// maps(maps) {}
 
 OpenDataServerCommand::OpenDataServerCommand(vector<string> &line, Maps* maps) {
     this->maps = maps;

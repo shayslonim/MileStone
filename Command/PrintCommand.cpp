@@ -15,7 +15,7 @@ void PrintCommand::execute(/*vector<string>::iterator*/) {
     if (this->line[INDEX_PRINT][0] == '"' && this->line[this->line.size() - 1][this->line[this->line.size() - 1].length() - 1] == '"') {
         string printThis = string();
         for (int i = INDEX_PRINT; i < line.size(); i++) {
-            printThis += line[i];
+            printThis += line[i] + " ";
         }
         //cout << line[INDEX_PRINT].substr(START, line[INDEX_PRINT].length() - END) << endl;
         cout << printThis << endl;

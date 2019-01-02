@@ -65,6 +65,7 @@ void Maps::setValue(string var, double val) {
 
 void Maps::setServerUpdater(ServerUpdater* updater) {
     this->serverUpdater = updater;
+    this->shouldUpdateServer = true;
 }
 
 void Maps::closeServerUpdate() {

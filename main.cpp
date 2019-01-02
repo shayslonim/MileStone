@@ -1,41 +1,43 @@
 #include <iostream>
-<<<<<<< HEAD
+//<<<<<<< HEAD
 #include "Expression/ExpressionTest.h"
-=======
+//=======
 #include "Lexer.h"
 #include "Parser.h"
 #include "Maps.h"
 #include "Command/OpenDataServerCommand.h"
 #include "Command/IfCommand.h"
->>>>>>> origin/master
+//>>>>>>> origin/master
 #include <unordered_set>
-
-int main() {
-    std::string line = "yay+divide/ love () wow + + ++";
-    std::cout << "before: " << line << std::endl;
-    //ExpressionTest::doTest();
-    std::unordered_set<char> operators = {'+', '-', '/', '*', '(', ')', '='};
-    int i = 0;
-    bool inserted = false;
-    while (i < line.length()) {
-        if (operators.find(line[i]) != operators.end()) {
-            if (i < line.length() - 1 && line[i + 1] != ' ') {
-                line.insert(i + 1, " ");
-            }
-            if (i > 0 && line[i - 1] != ' ') {
-                line.insert(i, " ");
-                inserted = true;
-            }
-
-<<<<<<< HEAD
-            if (inserted) {
-                i++;
-            }
-            i++;
-
-        }
-    }
-    std::cout << "after: " << line << std::endl;
+#include <fstream>
+//
+//
+//int main() {
+//    std::string line = "yay+divide/ love () wow + + ++";
+//    std::cout << "before: " << line << std::endl;
+//    //ExpressionTest::doTest();
+//    std::unordered_set<char> operators = {'+', '-', '/', '*', '(', ')', '='};
+//    int i = 0;
+//    bool inserted = false;
+//    while (i < line.length()) {
+//        if (operators.find(line[i]) != operators.end()) {
+//            if (i < line.length() - 1 && line[i + 1] != ' ') {
+//                line.insert(i + 1, " ");
+//            }
+//            if (i > 0 && line[i - 1] != ' ') {
+//                line.insert(i, " ");
+//                inserted = true;
+//            }
+//
+//<<<<<<< HEAD
+//            if (inserted) {
+//                i++;
+//            }
+//            i++;
+//
+//        }
+//    }
+//    std::cout << "after: " << line << std::endl;
 int main(int argc, char* argv[]) {
     Maps maps = Maps();
     Lexer lexer;
@@ -59,7 +61,5 @@ int main(int argc, char* argv[]) {
     parser.parse(lexerLines);
     //OpenDataServerCommand odsc = OpenDataServerCommand(5400, 10, new Maps());
     //ConditionCommand* command = new IfCommand(std::vector<std::string>());
-
     return 0;
-
 }

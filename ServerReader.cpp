@@ -126,6 +126,10 @@ void ServerReader::updateArgumentsListInMaps(double* values, Maps* maps) {
     maps->setValue("/controls/flight/flaps", values[20]);
     maps->setValue("/controls/engines/current-engine/throttle", values[21]);
     maps->setValue("/engines/engine/rpm", values[22]);
+
+    if (!SocketBooleans::isReadingStarted()) {
+        SocketBooleans::setReadingStarted(true);
+    }
 }
 
 double* ServerReader::createArgumentsList(string valuesString) {

@@ -6,7 +6,7 @@
 #include "OpenDataServerCommand.h"
 #include "../ServerReader.h"
 #include "../ServerReaderArguments.h"
-
+#include "../SocketBooleans.h"
 
 void OpenDataServerCommand::execute() {
     pthread_t serverThread;
@@ -14,6 +14,12 @@ void OpenDataServerCommand::execute() {
     ServerReaderArguments* args = new ServerReaderArguments(this->portId, this->timesPerSecond, this->maps);
 
     pthread_create(&serverThread, nullptr, ServerReader::readFromServer, args);
+
+    std::cout << "Please open the flightgear simulator" << std::endl;
+    while (!SocketBooleans::isReadingStarted()) {
+        usleep(1);
+    }
+    //
     // pthread_create(&serverThread, nullptr,server)
 }
 // maps(maps) {}
@@ -30,8 +36,7 @@ OpenDataServerCommand::OpenDataServerCommand(vector<string> &line, Maps* maps) {
         }
         index--;
         indexSecond = index + 2;
-    }
-    else {
+    } else {
         if (!(infixHandler.isANumber(line[index]) && infixHandler.isANumber(line[index + 1]))) {
             index++;
         }

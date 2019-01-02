@@ -9,10 +9,14 @@
 class SocketBooleans {
 private:
     static bool stopServerReader;
+    static bool readingStarted;
 
 public:
     static bool isStopServerReader();
     static void setStopServerReader(bool isStop);
+
+    static bool isReadingStarted();
+    static void setReadingStarted(bool isStarted);
 };
 
 

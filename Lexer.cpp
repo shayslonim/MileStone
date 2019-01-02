@@ -41,7 +41,7 @@ string Lexer::removeSpaces(string line) {
 }
 
 string Lexer::separateSpaces(string line) {
-    unordered_set<char> operators = {'+', '-', '/', '*', '(', ')', '=', ':', ','};
+    unordered_set<char> operators = {'+', '-', '/', '*', '(', ')', '=', ':', ',', '>','<'};
     int i = 0;
     bool inserted = false;
     bool isNum = false;
@@ -72,12 +72,16 @@ string Lexer::separateSpaces(string line) {
         if (operators.find(line[i]) != operators.end()) {
             if (i < line.length() - 1 && line[i + 1] != ' ') {
                 if (!(line[i] == '-' && !isNum && (line[i + 1] >= '0' && line[i + 1] <= '9'))) {
-                    line.insert(i + 1, " ");
+                    if (!(((line[i] == '<' || line[i] == '>') && line[i + 1] == '=') || (line[i] == '=' && line[i + 1] == '='))) {
+                        line.insert(i + 1, " ");
+                    }
                 }
             }
             if (i > 0 && line[i - 1] != ' ') {
+                if (!(((line[i - 1] == '<' || line[i - 1] == '>') && line[i] == '=') || (line[i - 1] == '=' && line[i] == '='))) {
                 line.insert(i, " ");
                 inserted = true;
+            }
             }
         }
         if (inserted) {

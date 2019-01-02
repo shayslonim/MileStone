@@ -8,12 +8,14 @@
 void ExitCommand::execute() {
     this->shouldExit = true;
     SocketBooleans::setStopServerReader(true);
+    this->maps->closeServerUpdater();
 }
 
 bool ExitCommand::getShouldExit() {
     return this->shouldExit;
 }
 
-ExitCommand::ExitCommand() {
+ExitCommand::ExitCommand(Maps* maps) {
+    this->maps = maps;
     this->shouldExit = false;
 }

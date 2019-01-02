@@ -16,7 +16,7 @@ void BindCommand::execute(/*vector<string>::iterator iter*/) {
     }
 }
 
-BindCommand::BindCommand(vector<string> line, Maps* maps) {
+BindCommand::BindCommand(vector<string> &line, Maps* maps) {
     this->line = line;
     this->maps = maps;
 }

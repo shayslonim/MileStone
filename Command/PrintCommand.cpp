@@ -4,7 +4,7 @@
 
 #include "PrintCommand.h"
 
-PrintCommand::PrintCommand(vector<string> line, Maps* maps) {
+PrintCommand::PrintCommand(vector<string> &line, Maps* maps) {
     this->line = line;
     this->maps = maps;
 }

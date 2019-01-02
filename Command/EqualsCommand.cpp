@@ -33,7 +33,7 @@ void EqualsCommand::execute(/*vector<string>::iterator iter*/) {
     this->maps->insertVal(iter[first], exp->calculate());
 }
 
-EqualsCommand::EqualsCommand(vector<string> line, Maps* maps) {
+EqualsCommand::EqualsCommand(vector<string> &line, Maps* maps) {
     this->line = line;
     this->maps = maps;
 }

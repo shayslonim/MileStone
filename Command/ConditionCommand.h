@@ -22,6 +22,7 @@ public:
     // ConditionCommand(vector<string> line, Maps* maps);
     void addCommand(vector<string> command);
     // void doParse();
+    void execute(/*vector<string>::iterator*/);
     bool isExpressionTrue();
     vector<vector<string>>* getCommands();
     ~ConditionCommand();

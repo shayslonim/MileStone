@@ -9,7 +9,7 @@
 #include "../InfixHandler.h"
 
 
-SleepCommand::SleepCommand(vector<string> line, Maps* maps) {
+SleepCommand::SleepCommand(vector<string> &line, Maps* maps) {
     InfixHandler infixHnadler = InfixHandler();
     ExpressionFactory factory = ExpressionFactory(maps);
     vector<string> expressionVector;

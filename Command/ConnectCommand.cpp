@@ -4,7 +4,7 @@
 
 #include "ConnectCommand.h"
 
-ConnectCommand::ConnectCommand(vector<string> line, Maps* maps) {
+ConnectCommand::ConnectCommand(vector<string> &line, Maps* maps) {
     this->maps = maps;
     ExpressionFactory factory = ExpressionFactory(maps);
     this->hostName = line[1];

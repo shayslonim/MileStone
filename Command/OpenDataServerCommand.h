@@ -25,7 +25,7 @@ private:
     Maps* maps;
 public:
 //    OpenDataServerCommand(int portId, int timesPerSecond, Maps* maps);
-    OpenDataServerCommand(vector<string> line, Maps* maps);
+    OpenDataServerCommand(vector<string> &line, Maps* maps);
 };
 
 #endif //MILESTONE_OPENDATASERVER_H

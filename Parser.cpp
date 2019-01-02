@@ -20,7 +20,6 @@ void Parser::parse(vector<vector<string>> line) {
             this->inner = new Parser(this->maps);
             //conditionCommand->execute();
             if (condition == IF) {
-
                 if (conditionCommand->isExpressionTrue()) {
                     this->inner->parse(*(conditionCommand->getCommands()));
                 }
@@ -59,7 +58,7 @@ void Parser::parse(vector<vector<string>> line) {
             conditionCommand = new WhileCommand(*iter, this->maps);
         }
         if (find(iter->begin(), iter->end(), OPEN_SERVER) != iter->end()) {
-            command = new OpenDataServerCommand(iter[0], this->maps);
+            command = new OpenDataServerCommand(*iter, this->maps);
             this->executeIfNeeded(command);
             this->addToConditionIfNeeded(&conditionLines, *iter);
         }

@@ -16,7 +16,7 @@ class ConnectCommand : public Command
     int portId;
     Maps* maps;
 public:
-    ConnectCommand(vector<string> line, Maps* maps);
+    ConnectCommand(vector<string> &line, Maps* maps);
     void execute(/*vector<string>::iterator*/) override;
 };
 

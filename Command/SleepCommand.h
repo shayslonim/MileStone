@@ -14,7 +14,7 @@ class SleepCommand : public Command
 {
     double time;
 public:
-    SleepCommand(vector<string> line, Maps* maps);
+    SleepCommand(vector<string> &line, Maps* maps);
     void execute(/*vector<string>::iterator*/);
 };
 

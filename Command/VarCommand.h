@@ -13,7 +13,7 @@ class VarCommand : public Command
     vector<string> line;
     Maps* maps;
 public:
-    VarCommand(vector<string> line, Maps* maps);
+    VarCommand(vector<string> &line, Maps* maps);
     void execute(/*vector<string>::iterator*/);
 };
 

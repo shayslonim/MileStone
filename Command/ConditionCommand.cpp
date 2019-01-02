@@ -41,4 +41,6 @@ vector<vector<string>>* ConditionCommand::getCommands() {
     return this->commands;
 }
 
+void ConditionCommand::execute(/*vector<string>::iterator*/) {}
+
 ConditionCommand::~ConditionCommand() {}

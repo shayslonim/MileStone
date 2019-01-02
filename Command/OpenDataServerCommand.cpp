@@ -18,7 +18,7 @@ void OpenDataServerCommand::execute() {
 }
 //חןןןןןןןןןןן                                                                                     maps(maps) {}
 
-OpenDataServerCommand::OpenDataServerCommand(vector<string> line, Maps* maps) {
+OpenDataServerCommand::OpenDataServerCommand(vector<string> &line, Maps* maps) {
     this->maps = maps;
     InfixHandler infixHandler = InfixHandler();
     ExpressionFactory factory = ExpressionFactory(maps);

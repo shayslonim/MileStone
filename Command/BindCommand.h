@@ -14,7 +14,7 @@ class BindCommand : public Command
     vector<string> line;
     Maps* maps;
 public:
-    BindCommand(vector<string> line, Maps* maps);
+    BindCommand(vector<string> &line, Maps* maps);
     void execute(/*vector<string>::iterator*/) override;
 };
 

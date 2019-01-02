@@ -15,7 +15,7 @@ class EqualsCommand : public Command
     vector<string> line;
     Maps* maps;
 public:
-    EqualsCommand(vector<string> line, Maps* maps);
+    EqualsCommand(vector<string> &line, Maps* maps);
     void execute(/*vector<string>::iterator*/);
 };
 

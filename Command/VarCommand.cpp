@@ -11,7 +11,7 @@ void VarCommand::execute(/*vector<string>::iterator iter*/) {
     this->maps->insertVal(iter[INDEX], 0);
 }
 
-VarCommand::VarCommand(vector<string> line, Maps* maps) {
+VarCommand::VarCommand(vector<string> &line, Maps* maps) {
     this->line = line;
     this->maps = maps;
 }

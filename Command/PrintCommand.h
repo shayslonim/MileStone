@@ -16,7 +16,7 @@ class PrintCommand : public Command
     vector<string> line;
     Maps* maps;
 public:
-    PrintCommand(vector<string> line, Maps* maps);
+    PrintCommand(vector<string> &line, Maps* maps);
     void execute(/*vector<string>::iterator*/);
 };
 

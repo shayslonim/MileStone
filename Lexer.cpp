@@ -21,10 +21,8 @@ vector<string>* Lexer::lexer(string line) {
             }
         }
         if (quote) {
-            if (line[i] != '"') {
                 commands->push_back(command);
                 command = "";
-            }
         } else {
         if (line[i] == ' ' || line[i] == '\t') {
             commands->push_back(command);

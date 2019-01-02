@@ -13,5 +13,6 @@ ConnectCommand::ConnectCommand(vector<string> &line, Maps* maps) {
 
 void ConnectCommand::execute() {
     ServerUpdater* serverUpdater = new ServerUpdater(this->hostName, this->portId);
+    serverUpdater->connectToServer();
     this->maps->setServerUpdater(serverUpdater);
 }

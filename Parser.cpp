@@ -10,6 +10,7 @@ void Parser::parse(vector<vector<string>> line) {
     Command* command;
     string condition;
     bool stop = false;
+    //
     for (vector<vector<string>>::iterator iter = line.begin(); iter != line.end(); ++iter) {
         if (stop) {
             break;

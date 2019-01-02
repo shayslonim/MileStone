@@ -17,9 +17,9 @@ void OpenDataServerCommand::execute() {
 
     std::cout << "Please open the flightgear simulator" << std::endl;
 
-    while (!SocketBooleans::isReadingStarted()) {
-        usleep(1);
-    }
+//    while (!SocketBooleans::isReadingStarted()) {
+//        usleep(1);
+//    }
 
     //
     // pthread_create(&serverThread, nullptr,server)

@@ -7,7 +7,7 @@
 #include "Command.h"
 #include "../Maps.h"
 #define FIRST 0
-#define SECOND 3
+#define SECOND 2
 
 class BindCommand : public Command
 {

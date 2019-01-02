@@ -4,9 +4,11 @@
 
 #ifndef MILESTONE_VAR_H
 #define MILESTONE_VAR_H
+#include <regex>
 #include "Command.h"
 #include "../Maps.h"
 #define INDEX 1
+using namespace std;
 
 class VarCommand : public Command
 {

@@ -22,7 +22,8 @@ void EqualsCommand::execute(/*vector<string>::iterator iter*/) {
         second++;
     }
     if (iter[second] == "bind") {
-        second++;
+        return;
+        //second++;
     }
     for (int i = second; i < this->line.size(); i++) {
         expressionVector.push_back(this->line[i]);

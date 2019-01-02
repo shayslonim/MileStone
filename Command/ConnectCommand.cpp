@@ -6,8 +6,10 @@
 
 ConnectCommand::ConnectCommand(vector<string> line, Maps* maps) {
     this->maps = maps;
+    //todo: constructor
 }
 
 void ConnectCommand::execute() {
-    Command::execute();
+    ServerUpdater* serverUpdater = new ServerUpdater(this->hostName, this->portId);
+
 }

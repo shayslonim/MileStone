@@ -25,7 +25,7 @@
 #include "Lexer.h"
 
 #define BIND "bind"
-#define CONNECT "connect"
+#define CONNECT "connectToServer"
 #define EQUALS "="
 #define IF "if"
 #define OPEN_SERVER "openDataServer"
@@ -56,7 +56,7 @@ public:
     void parse(vector<vector<string>> line);
     void executeIfNeeded(Command command);
     void addToConditionIfNeeded(vector<vector<string>>* condition, vector<string> line);
-//    void add(Command command);
+//  void add(Command command);
 };
 
 

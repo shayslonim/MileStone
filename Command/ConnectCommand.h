@@ -14,7 +14,7 @@ class ConnectCommand : public Command
     Maps* maps;
 public:
     ConnectCommand(vector<string> line, Maps* maps);
-    void execute(/*vector<string>::iterator*/);
+    void execute(/*vector<string>::iterator*/) override;
 };
 
 #endif //MILESTONE_CONNECT_H

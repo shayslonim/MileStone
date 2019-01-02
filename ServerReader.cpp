@@ -57,7 +57,7 @@ void* ServerReader::readFromServer(void* arguments) {
 
     listen(sockfd, 5);
     clilen = sizeof(cli_addr);
-    cout << "Trying to connect to server.." << std::endl;
+    cout << "Trying to connectToServer to server.." << std::endl;
     /* Accept actual connection from the client */
     newsockfd = accept(sockfd, (struct sockaddr*) &cli_addr, (socklen_t*) &clilen);
     std::cout << "There is a connection!"

@@ -3,11 +3,13 @@
 //
 
 #include "Maps.h"
+
 using namespace std;
 
 #include <string>
 #include <map>
 #include "Command/Command.h"
+
 using namespace std;
 
 void Maps::insertBind(string key, string val) {
@@ -19,7 +21,9 @@ void Maps::insertVal(string key, double val) {
     varToValMap[key] = val;
     if (this->reversedBindMap.find(key) != this->reversedBindMap.end()) {
         this->pathToValMap[getReversedBind(key)] = val;
-        this->updater->update(getReversedBind(key), val);
+        if (this->shouldUpdateServer) {
+            this->serverUpdater->update(getReversedBind(key), val);
+        }
     }
 }
 
@@ -44,7 +48,8 @@ Maps::Maps() {
     this->reversedBindMap = map<string, string>();
     this->varToValMap = map<string, double>();
     this->pathToValMap = map<string, double>();
-    this->updater = new ServerUpdater();
+    this->shouldUpdateServer = false;
+    //this->serverUpdater = new ServerUpdater();
 }
 
 void Maps::setValue(string var, double val) {
@@ -52,5 +57,14 @@ void Maps::setValue(string var, double val) {
     if (this->bindMap.find(var) != this->bindMap.end()) {
         this->varToValMap[var] = val;
     }
-    this->updater->update(var, val);
+    if (this->shouldUpdateServer) {
+        this->serverUpdater->update(var, val);
+    }
+
 }
+
+void Maps::setServerUpdater(ServerUpdater* updater) {
+    this->serverUpdater = updater;
+}
+
+

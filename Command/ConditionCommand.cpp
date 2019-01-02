@@ -9,10 +9,11 @@ void ConditionCommand::addCommand(vector<string> command) {
     this->commands->push_back(command);
 }
 
-//ConditionCommand::ConditionCommand(vector<string> &line, Maps* maps) {
-//    this->line = line;
-//    this->maps = maps;
-//}
+ConditionCommand::ConditionCommand(vector<string> &line, Maps* maps) {
+    this->line = line;
+    this->maps = maps;
+    this->commands = new vector<vector<string>>();
+}
 
 //void ConditionCommand::doParse() {
 //    this->parser->parse(*(this->commands));

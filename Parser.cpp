@@ -48,12 +48,12 @@ void Parser::parse(vector<vector<string>> line) {
         if (find(iter->begin(), iter->end(), IF) != iter->end()) {
             this->addToCondition = true;
             condition = IF;
-            conditionCommand = new IfCommand(*iter, this->maps);
+            conditionCommand = new ConditionCommand(*iter, this->maps);
         }
         if (find(iter->begin(), iter->end(), WHILE) != iter->end()) {
             this->addToCondition = true;
             condition = WHILE;
-            conditionCommand = new WhileCommand(*iter, this->maps);
+            conditionCommand = new ConditionCommand(*iter, this->maps);
         }
         if (find(iter->begin(), iter->end(), OPEN_SERVER) != iter->end()) {
             command = new OpenDataServerCommand(*iter, this->maps);

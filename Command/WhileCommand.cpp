@@ -9,11 +9,11 @@
 ////        this->doParse();
 ////    }
 //}
-
-WhileCommand::WhileCommand(vector<string> &line, Maps* maps) {
-    this->line = line;
-    this->maps = maps;
-}
+//
+//WhileCommand::WhileCommand(vector<string> &line, Maps* maps) {
+//    this->line = line;
+//    this->maps = maps;
+//}
 
 //bool WhileCommand::isExpressionTrue() {
 //    return ConditionCommand::isExpressionTrue();

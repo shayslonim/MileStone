@@ -10,10 +10,10 @@
 ////    }
 //}
 
-IfCommand::IfCommand(vector<string> &line, Maps* maps) {
-    this->line = line;
-    this->maps = maps;
-}
+//IfCommand::IfCommand(vector<string> &line, Maps* maps) {
+//    this->line = line;
+//    this->maps = maps;
+//}
 
 //bool IfCommand::isExpressionTrue() {
 //    return ConditionCommand::isExpressionTrue();

@@ -12,7 +12,7 @@ class IfCommand : public ConditionCommand {
     vector<string> line;
     Maps* maps;
 public:
-    IfCommand(vector<string> &line, Maps* maps); //Expression - boolean, list of commands to excecute
+    //IfCommand(vector<string> &line, Maps* maps); //Expression - boolean, list of commands to excecute
 //    void execute(/*vector<string>::iterator*/);
 //    void addCommand(vector<string> command);
 //    bool isExpressionTrue();

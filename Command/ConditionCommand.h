@@ -19,7 +19,7 @@ class ConditionCommand : public Command
     Maps* maps;
     //Parser* parser;
 public:
-    //ConditionCommand(vector<string> &line, Maps* maps);
+    ConditionCommand(vector<string> &line, Maps* maps);
     void addCommand(vector<string> command);
     // void doParse();
     void execute(/*vector<string>::iterator*/);

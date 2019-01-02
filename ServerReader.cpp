@@ -89,7 +89,7 @@ void* ServerReader::readFromServer(void* arguments) {
             varsAndVals = varsAndVals.substr(varsAndVals.find('\n'));
 
             //sleep for timesPerSecondTime
-            usleep(1.0 / timesPerSecond);
+            usleep(1.0 / timesPerSecond); //Maybe delete this
         }
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

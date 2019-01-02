@@ -9,7 +9,7 @@
 #include "../Maps.h"
 #define INDEX_PRINT 1
 #define START 1
-#define END 2
+#define END 1
 
 class PrintCommand : public Command
 {

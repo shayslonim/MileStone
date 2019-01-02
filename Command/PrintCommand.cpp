@@ -13,7 +13,12 @@ PrintCommand::PrintCommand(vector<string> &line, Maps* maps) {
 void PrintCommand::execute(/*vector<string>::iterator*/) {
     // The second string is a quote: "print this"
     if (this->line[INDEX_PRINT][0] == '"' && this->line[INDEX_PRINT][this->line[INDEX_PRINT].length() - 1] == '"') {
-        cout << line[INDEX_PRINT].substr(START, line[INDEX_PRINT].length() - END) << endl;
+        string printThis = string();
+        for (int i = INDEX_PRINT; i < line.size(); i++) {
+            printThis += line[i];
+        }
+        //cout << line[INDEX_PRINT].substr(START, line[INDEX_PRINT].length() - END) << endl;
+        cout << printThis << endl;
     }
     // The second string represents a variable
     else {

@@ -1,5 +1,5 @@
 openDataServer 5400 10
-connect 192.168.1.26 5402
+connect 127.0.0.1 5402
 var warp = bind "/sim/time/warp"
 var magnetos = bind "/controls/switches/magnetos"
 var throttle = bind "/controls/engines/current-engine/throttle"
@@ -22,8 +22,8 @@ var elevator = bind "/controls/flight/elevator"
 var alt = bind "/instrumentation/altimeter/indicated-altitude-ft"
 var rpm = bind "/engines/engine/rpm"
 
-print "waiting 12 seconds for gui"
-sleep 12000
+print "waiting 1 minute for gui"
+sleep 6000
 print "let's start"
 warp = 32000
 sleep 1000
@@ -40,6 +40,8 @@ autostart = 1
 print "engine is warming..."
 while rpm <= 750 {
 sleep 1000
+print "rpm is..."
+print rpm
 }
 sleep 5000
 print "let's fly"

@@ -6,7 +6,7 @@
 
 //var breaks = bind "/controls/flight/speedbrake"
 //var h0 = heading
-void VarCommand::execute(/*vector<string>::iterator iter*/) {
+void VarCommand::execute() {
     if (find(this->line.begin(), this->line.end(), "bind") != this->line.end()) {
         return;
     }

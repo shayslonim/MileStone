@@ -10,9 +10,9 @@
 #include <stack>
 #include <regex>
 #include "Maps.h"
- #include "Command/ConditionCommand.h"
- #include "Command/IfCommand.h"
- #include "Command/WhileCommand.h"
+#include "Command/ConditionCommand.h"
+#include "Command/IfCommand.h"
+#include "Command/WhileCommand.h"
 #include "Command/BindCommand.h"
 #include "Command/ConnectCommand.h"
 #include "Command/EqualsCommand.h"
@@ -25,7 +25,7 @@
 #include "Lexer.h"
 
 #define BIND "bind"
-#define CONNECT "connectToServer"
+#define CONNECT "connect"
 #define EQUALS "="
 #define IF "if"
 #define OPEN_SERVER "openDataServer"

@@ -19,10 +19,11 @@ void Maps::insertBind(string key, string val) {
 
 void Maps::insertVal(string key, double val) {
     varToValMap[key] = val;
-    if (this->reversedBindMap.find(key) != this->reversedBindMap.end()) {
-        this->pathToValMap[getReversedBind(key)] = val;
+    if (this->bindMap.find(key) != this->bindMap.end()) {
+        this->pathToValMap[getBind(key)] = val;
+
         if (this->shouldUpdateServer) {
-            this->serverUpdater->update(getReversedBind(key), val);
+            this->serverUpdater->update(getBind(key), val);
         }
     }
 }
@@ -57,10 +58,6 @@ void Maps::setValue(string var, double val) {
     if (this->bindMap.find(var) != this->bindMap.end()) {
         this->varToValMap[var] = val;
     }
-    if (this->shouldUpdateServer) {
-        this->serverUpdater->update(var, val);
-    }
-
 }
 
 void Maps::setServerUpdater(ServerUpdater* updater) {

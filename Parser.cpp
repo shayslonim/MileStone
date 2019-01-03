@@ -23,7 +23,9 @@ void Parser::parse(vector<vector<string>> line) {
                 }
             } else {
                 if (condition == WHILE) {
+                    cout << "inside while loop!" << std::endl;
                     while (conditionCommand->isExpressionTrue()) {
+                       // cout << "condition is: "<< conditionCommand->isExpressionTrue() << std::endl;
                         this->inner->parse(*(conditionCommand->getCommands()));
                     }
                 }

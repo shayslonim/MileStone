@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Expression/ExpressionTest.h"
 #include "Lexer.h"
-#include "Parser.h"
+#include "../Parser.h"
 #include "Maps.h"
 #include "Command/OpenDataServerCommand.h"
 #include "Command/IfCommand.h"
@@ -34,9 +34,18 @@ int main(int argc, char* argv[]) {
     for (int i = 0; i < lines.size(); i++) {
         auto line = *lexer.lexer(lines[i]);
         vector<string> result;
-        std::copy_if(line.begin(), line.end(), back_inserter(result), [](string s){return !s.empty();});
+        std::copy_if(line.begin(), line.end(), back_inserter(result), [](string s) { return !s.empty(); });
         lexerLines.push_back(result);
     }
+//    //~~~~~~~~~~~~~~~~~~~~``
+//    //print lexed lines
+//    for (int j = 0; j < lexerLines.size(); j++) {
+//        for (int i = 0; i < lexerLines[j].size(); ++i) {
+//            cout << lexerLines[j][i] << " ";
+//        }
+//        cout << endl;
+//    }
+//    //~~~~~~~~~~~~~~~~~~~
     parser.parse(lexerLines);
     //OpenDataServerCommand odsc = OpenDataServerCommand(5400, 10, new Maps());
     //ConditionCommand* command = new IfCommand(std::vector<std::string>());

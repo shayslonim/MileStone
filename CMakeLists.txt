@@ -3,7 +3,7 @@ project(MileStone)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_FLAGS -pthread)
-add_executable(MileStone main.cpp Lexer.cpp Lexer.h Command/Command.h   Expression/VarExpression.cpp
+add_executable(MileStone main.cpp Lexer.cpp Lexer.h Command/Command.h Expression/VarExpression.cpp
         Expression/VarExpression.h ExpressionFactory.cpp ExpressionFactory.h Expression/Expression.h
         Expression/NumExpression.cpp Expression/NumExpression.h Expression/MultiplyExpression.cpp
         Expression/MultiplyExpression.h Expression/DivideExpression.cpp
@@ -21,4 +21,4 @@ add_executable(MileStone main.cpp Lexer.cpp Lexer.h Command/Command.h   Expressi
         Expression/EqualsExpression.cpp ServerReader.h ServerReader.cpp
         Command/ExitCommand.cpp Command/ExitCommand.h SocketBooleans.cpp SocketBooleans.h Command/ConnectCommand.cpp
         Parser.cpp Command/ConnectCommand.cpp Command/ConditionCommand.cpp Command/ConditionCommand.h
-        Command/SleepCommand.cpp Command/SleepCommand.h ServerUpdater.cpp ServerUpdater.h)
+        Command/SleepCommand.cpp Command/SleepCommand.h ServerUpdater.cpp ServerUpdater.h Parser.h)

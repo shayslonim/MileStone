@@ -57,11 +57,12 @@ void* ServerReader::readFromServer(void* arguments) {
 
     listen(sockfd, 5);
     clilen = sizeof(cli_addr);
-    cout << "Trying to connectToServer to server.." << std::endl;
+    cout << "Trying to connect to server.." << std::endl;
     /* Accept actual connection from the client */
     newsockfd = accept(sockfd, (struct sockaddr*) &cli_addr, (socklen_t*) &clilen);
-    std::cout << "There is a connection!"
-              << std::endl; //This is printed if openDataServer connects to the flightgear! :D
+
+    //This is printed if openDataServer connects to the flightgear! :D
+    std::cout << "There is a connection!" << std::endl;
 
     if (newsockfd < 0) {
         perror("ERROR on accept");
@@ -82,14 +83,14 @@ void* ServerReader::readFromServer(void* arguments) {
         varsAndVals += buffer;
 
         if (varsAndVals.find('\n') != string::npos) {
-/////////////            cout << "current value is:" << varsAndVals << std::endl;
+////////////cout << "current value is:" << varsAndVals << std::endl;
             double* values = createArgumentsList(varsAndVals);
             updateArgumentsListInMaps(values, maps);
             //remove the used variables in the string and keep the variables after the \n
             varsAndVals = varsAndVals.substr(varsAndVals.find('\n'));
 
             //sleep for timesPerSecondTime
-////////////////// / / / /            usleep(1.0 / timesPerSecond); //Maybe delete this
+            usleep(1.0 / timesPerSecond); //Maybe delete this
         }
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -150,8 +151,7 @@ double* ServerReader::createArgumentsList(string valuesString) {
 
     if (result.size() != 23) {
         // perror("not enough arguments were passed to createArgumentsList function");
-        cout << "not enough arguments were passed to createArgumentsList function"
-             << std::endl;//todo: delete this after checking that it works
+        cerr << "not enough arguments were passed to createArgumentsList function" << std::endl;
     } else {
         int i = 0;
         for (vector<string>::iterator it = result.begin(); it < result.end(); it++) {

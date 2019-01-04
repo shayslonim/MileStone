@@ -19,6 +19,7 @@ void Maps::insertBind(string key, string val) {
 
 void Maps::insertVal(string key, double val) {
     varToValMap[key] = val;
+
     if (this->bindMap.find(key) != this->bindMap.end()) {
         this->pathToValMap[getBind(key)] = val;
 

@@ -10,6 +10,9 @@
 //breaks = 0
 //var h0 = heading
 //aileron = - roll / 70
+/**
+ * Insert a value to a variable
+ */
 void EqualsCommand::execute(/*vector<string>::iterator iter*/) {
     InfixHandler infixHnadler = InfixHandler();
     ExpressionFactory factory = ExpressionFactory(maps);
@@ -39,6 +42,11 @@ void EqualsCommand::execute(/*vector<string>::iterator iter*/) {
     }
 }
 
+/**
+ * Constructor
+ * @param line vector<string> pointer
+ * @param maps Maps*
+ */
 EqualsCommand::EqualsCommand(vector<string> &line, Maps* maps) {
     this->line = line;
     this->maps = maps;

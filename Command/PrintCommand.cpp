@@ -4,12 +4,20 @@
 
 #include "PrintCommand.h"
 
+/**
+ * Constructor
+ * @param line vector<string> pointer
+ * @param maps Mpas*
+ */
 PrintCommand::PrintCommand(vector<string> &line, Maps* maps) {
     this->line = line;
     this->maps = maps;
 }
 
 // The first string should be "print", and thr second one - what to print
+/**
+ * Do the printing
+ */
 void PrintCommand::execute(/*vector<string>::iterator*/) {
     // The string is a quote: "print this"
     ExpressionFactory factory = ExpressionFactory(this->maps);

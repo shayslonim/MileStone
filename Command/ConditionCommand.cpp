@@ -5,10 +5,19 @@
 #include "ConditionCommand.h"
 #include "../InfixHandler.h"
 
+/**
+ * Add to list of commands
+ * @param command vector<string>
+ */
 void ConditionCommand::addCommand(vector<string> command) {
     this->commands->push_back(command);
 }
 
+/**
+ * Constructor
+ * @param line vector string pointer
+ * @param maps Maps*
+ */
 ConditionCommand::ConditionCommand(vector<string> &line, Maps* maps) {
     this->line = line;
     this->maps = maps;
@@ -19,6 +28,10 @@ ConditionCommand::ConditionCommand(vector<string> &line, Maps* maps) {
 //    this->parser->parse(*(this->commands));
 //}
 
+/**
+ * Evaluate
+ * @return true or false by the expression
+ */
 bool ConditionCommand::isExpressionTrue() {
     InfixHandler infixHnadler = InfixHandler();
     ExpressionFactory factory = ExpressionFactory(this->maps);
@@ -46,10 +59,20 @@ bool ConditionCommand::isExpressionTrue() {
     return this->booleanExpression->calculate() == TRUE;
 }
 
+/**
+ * Get the list of commands
+ * @return vector<vector<string>>* commands
+ */
 vector<vector<string>>* ConditionCommand::getCommands() {
     return this->commands;
 }
 
+/**
+ * Do the commands
+ */
 void ConditionCommand::execute(/*vector<string>::iterator*/) {}
 
+/**
+ * Destructor
+ */
 ConditionCommand::~ConditionCommand() {}

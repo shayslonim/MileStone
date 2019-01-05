@@ -4,6 +4,11 @@
 
 #include "ConnectCommand.h"
 
+/**
+ * constructor
+ * @param line vector<string> pointer
+ * @param maps Maps*
+ */
 ConnectCommand::ConnectCommand(vector<string> &line, Maps* maps) {
     this->maps = maps;
     ExpressionFactory factory = ExpressionFactory(maps);
@@ -11,6 +16,9 @@ ConnectCommand::ConnectCommand(vector<string> &line, Maps* maps) {
     this->portId = factory.getExpressionFromUnorderedLine(line, 2, line.size() - 1)->calculate();
 }
 
+/**
+ * Connect to the server
+ */
 void ConnectCommand::execute() {
     ServerUpdater* serverUpdater = new ServerUpdater(this->hostName, this->portId);
     serverUpdater->connectToServer();

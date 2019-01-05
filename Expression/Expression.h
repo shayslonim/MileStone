@@ -13,6 +13,10 @@
  */
 class Expression {
 public:
+    /**
+     * Evaluate
+     * @return double
+     */
     virtual double calculate() = 0;
 };
 

@@ -8,7 +8,11 @@
 #include "../ExpressionFactory.h"
 #include "../InfixHandler.h"
 
-
+/**
+ * Constructor
+ * @param line vector<string> pointer
+ * @param maps Maps*
+ */
 SleepCommand::SleepCommand(vector<string> &line, Maps* maps) {
     InfixHandler infixHnadler = InfixHandler();
     ExpressionFactory factory = ExpressionFactory(maps);

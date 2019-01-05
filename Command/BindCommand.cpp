@@ -5,6 +5,9 @@
 #include "BindCommand.h"
 #include <iostream>
 
+/**
+ * bind between a variable to a path
+ */
 // The vector is expected to include strings without spaces, ex: var breaks = bind "/controls/flight/speedbrake"
 void BindCommand::execute(/*vector<string>::iterator iter*/) {
     vector<string>::iterator iter = this->line.begin();
@@ -29,6 +32,11 @@ void BindCommand::execute(/*vector<string>::iterator iter*/) {
     this->maps->insertBind(variable, path);
 }
 
+/**
+ * constructor
+ * @param line vector string pointer
+ * @param maps Maps*
+ */
 BindCommand::BindCommand(vector<string> &line, Maps* maps) {
     this->line = line;
     this->maps = maps;

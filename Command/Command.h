@@ -9,9 +9,18 @@
 #include <vector>
 
 using namespace std;
+/**
+ * Something that can be executed
+ */
 class Command {
 public:
+    /**
+     * Do the command
+     */
     virtual void execute(/*vector<string>::iterator iter*/)  = 0;
+    /**
+     * Destructor
+     */
     virtual ~Command() = default;
 };
 

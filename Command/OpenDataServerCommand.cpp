@@ -8,6 +8,9 @@
 #include "../ServerReaderArguments.h"
 #include "../SocketBooleans.h"
 
+/**
+ * Open data server
+ */
 void OpenDataServerCommand::execute() {
     pthread_t serverThread;
 
@@ -24,6 +27,11 @@ void OpenDataServerCommand::execute() {
 }
 // maps(maps) {}
 
+/**
+ * Constructor
+ * @param line vector<string> pointer
+ * @param maps Maps*
+ */
 OpenDataServerCommand::OpenDataServerCommand(vector<string> &line, Maps* maps) {
     this->maps = maps;
     InfixHandler infixHandler = InfixHandler();

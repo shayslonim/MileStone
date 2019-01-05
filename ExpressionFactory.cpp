@@ -66,7 +66,11 @@ Expression* ExpressionFactory::getExpression(vector<string> postfix) {
             }
             catch (exception ex) {
                 if (s[0] == '-') {
-                    expressionStack.push(new NegateExpression(new VarExpression(s, maps)));
+                    string positive = string();
+                    for (int i = 1; i < s.length(); i++) {
+                        positive += s[i];
+                    }
+                    expressionStack.push(new NegateExpression(new VarExpression(positive, maps)));
                 }
                 else {
                     expressionStack.push(new VarExpression(s, maps));

@@ -19,14 +19,14 @@ void Parser::parse(vector<vector<string>> line) {
             if (condition == IF) {
 
                 if (conditionCommand->isExpressionTrue()) {
-                    this->inner->parse(*(conditionCommand->getCommands()));
+                    this->inner->parse(conditionLines);
                 }
             } else {
                 if (condition == WHILE) {
                     cout << "inside while loop!" << std::endl;
                     while (conditionCommand->isExpressionTrue()) {
                        // cout << "condition is: "<< conditionCommand->isExpressionTrue() << std::endl;
-                        this->inner->parse(*(conditionCommand->getCommands()));
+                        this->inner->parse(conditionLines);
                     }
                 }
             }

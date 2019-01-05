@@ -53,7 +53,7 @@ string Lexer::separateSpaces(string line) {
     unordered_set<char> operators = {'+', '-', '/', '*', '(', ')', '=', ':', ',', '>','<'};
     int i = 0;
     bool inserted = false;
-    bool isNum = false;
+    bool isNumOrVal = false;
     bool isQuotation = false;
     while (i < line.length()) {
         if (line[i] == '"') {
@@ -71,16 +71,16 @@ string Lexer::separateSpaces(string line) {
             }
         }
         if (!isQuotation) {
-        if (line[i] >= '0' && line[i] <= '9') {
-            isNum = true;
+        if (isDigitOrLetter(line[i])) {
+            isNumOrVal = true;
         } else {
             if (line[i] != ' ' && line[i] != '-') {
-                isNum = false;
+                isNumOrVal = false;
             }
         }
         if (operators.find(line[i]) != operators.end()) {
             if (i < line.length() - 1 && line[i + 1] != ' ') {
-                if (!(line[i] == '-' && !isNum && (line[i + 1] >= '0' && line[i + 1] <= '9'))) {
+                if (!(line[i] == '-' && !isNumOrVal && isDigitOrLetter(line[i + 1]))) {
                     if (!(((line[i] == '<' || line[i] == '>') && line[i + 1] == '=') || (line[i] == '=' && line[i + 1] == '='))) {
                         line.insert(i + 1, " ");
                     }
@@ -101,4 +101,8 @@ string Lexer::separateSpaces(string line) {
         i++;
     }
     return line;
+}
+
+bool Lexer::isDigitOrLetter(char c) {
+    return (c >= '0' && c <= '9') || (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
 }

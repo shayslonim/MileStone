@@ -25,6 +25,7 @@ using namespace std;
 #include "Expression/BiggerEqualsExpression.h"
 #include "Expression/SmallerEqualsExpression.h"
 #include "Expression/VarExpression.h"
+#include "Expression/NegateExpression.h"
 
 /**
  * The expression factory creates an expression from a vector of string.

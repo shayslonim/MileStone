@@ -20,6 +20,7 @@ public:
 private:
     static string separateSpaces(string line);
     static string removeRepeatingSpaces(string line);
+    static bool isDigitOrLetter(char c);
 };
 
 

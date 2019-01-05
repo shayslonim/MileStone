@@ -65,6 +65,9 @@ Expression* ExpressionFactory::getExpression(vector<string> postfix) {
                 expressionStack.push(new NumExpression(stod(s)));
             }
             catch (exception ex) {
+                if (s[0] == '-') {
+                    expressionStack.push(new NegateExpression(new VarExpression(s, maps)));
+                }
                 expressionStack.push(new VarExpression(s, maps));
             }
         }

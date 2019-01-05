@@ -7,14 +7,23 @@
 Lexer::Lexer() {};
 
 vector<string>* Lexer::lexer(string line) {
+    bool isQuotation = false;
     line = separateSpaces(line);
     line = removeRepeatingSpaces(line);
     vector<string>* commands = new vector<string>();
     string command = "";
     for (int i = 0; i < line.length(); i++) {
+        if (line[i] == '"') {
+            isQuotation ? isQuotation = false : isQuotation = true;
+        }
         if (line[i] == ' ' || line[i] == '\t') {
-            commands->push_back(command);
-            command = "";
+            if (!isQuotation) {
+                commands->push_back(command);
+                command = "";
+            }
+            else {
+                command += line[i];
+            }
         } else {
             command += line[i];
         }

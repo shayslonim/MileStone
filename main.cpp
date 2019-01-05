@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Expression/ExpressionTest.h"
 #include "Lexer.h"
-#include "../Parser.h"
+#include "Parser.h"
 #include "Maps.h"
 #include "Command/OpenDataServerCommand.h"
 #include "Command/IfCommand.h"

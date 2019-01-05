@@ -42,6 +42,11 @@ void Parser::parse(vector<vector<string>> line) {
             this->executeIfNeeded(command);
             this->addToConditionIfNeeded(&conditionLines, *iter);
         }
+        if (find(iter->begin(), iter->end(), VAR) != iter->end()) {
+            command = new VarCommand(*iter, this->maps);
+            this->executeIfNeeded(command);
+            this->addToConditionIfNeeded(&conditionLines, *iter);
+        }
         if (find(iter->begin(), iter->end(), EQUALS) != iter->end()) {
             command = new EqualsCommand(*iter, this->maps);
             this->executeIfNeeded(command);
@@ -64,11 +69,6 @@ void Parser::parse(vector<vector<string>> line) {
         }
         if (find(iter->begin(), iter->end(), PRINT) != iter->end()) {
             command = new PrintCommand(*iter, this->maps);
-            this->executeIfNeeded(command);
-            this->addToConditionIfNeeded(&conditionLines, *iter);
-        }
-        if (find(iter->begin(), iter->end(), VAR) != iter->end()) {
-            command = new VarCommand(*iter, this->maps);
             this->executeIfNeeded(command);
             this->addToConditionIfNeeded(&conditionLines, *iter);
         }

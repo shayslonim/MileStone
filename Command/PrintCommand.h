@@ -7,6 +7,7 @@
 #include <iostream>
 #include "Command.h"
 #include "../Maps.h"
+#include "../ExpressionFactory.h"
 #define INDEX_PRINT 1
 #define START 1
 #define END 1

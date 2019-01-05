@@ -12,6 +12,7 @@ PrintCommand::PrintCommand(vector<string> &line, Maps* maps) {
 // The first string should be "print", and thr second one - what to print
 void PrintCommand::execute(/*vector<string>::iterator*/) {
     // The string is a quote: "print this"
+    ExpressionFactory factory = ExpressionFactory(this->maps);
     for (int i = INDEX_PRINT; i < this->line.size(); i++) {
         if (this->line[i][0] == '"' &&
             this->line[i][this->line[i].length() - END] == '"') {
@@ -24,12 +25,20 @@ void PrintCommand::execute(/*vector<string>::iterator*/) {
         }
         // The string represents a variable
         else {
-            try {
-                cout << this->maps->getValbyVar(this->line[i]);
+            vector<string> expressionVector = vector<string>();
+            while (i < this->line.size() && (!(this->line[i][0] == '"' &&
+                     this->line[i][this->line[i].length() - END] == '"'))) {
+                expressionVector.push_back(this->line[i]);
+                i++;
             }
-            catch (exception ex) {
-                cout << this->maps->getValbyPath(this->line[i]);
-            }
+            i--;
+            cout << factory.getExpressionFromUnorderedLine(expressionVector, 0, expressionVector.size() - 1)->calculate();
+//            try {
+//                cout << this->maps->getValbyVar(this->line[i]);
+//            }
+//            catch (exception ex) {
+//                cout << this->maps->getValbyPath(this->line[i]);
+//            }
         }
     }
     cout << endl;

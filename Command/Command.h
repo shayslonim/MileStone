@@ -19,7 +19,7 @@ public:
      */
     virtual void execute(/*vector<string>::iterator iter*/)  = 0;
     /**
-     * Destructor
+     * Destructor.
      */
     virtual ~Command() = default;
 };
